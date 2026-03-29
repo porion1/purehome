@@ -1,0 +1,978 @@
+2026-03-29 02:35:08.852 [main] INFO  c.p.uicore.UiCoreServiceApplication - Starting UiCoreServiceApplication using Java 23.0.2 with PID 13560 (C:\Users\rehan\OneDrive\Desktop\purehome\backend\ui-core-service\target\classes started by rehan in C:\Users\rehan\OneDrive\Desktop\purehome\backend\ui-core-service)
+2026-03-29 02:35:08.875 [main] DEBUG c.p.uicore.UiCoreServiceApplication - Running with Spring Boot v3.1.5, Spring v6.0.13
+2026-03-29 02:35:08.878 [main] INFO  c.p.uicore.UiCoreServiceApplication - The following 1 profile is active: "dev"
+2026-03-29 02:35:17.898 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-29 02:35:17.900 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-03-29 02:35:19.061 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1155 ms. Found 5 MongoDB repository interfaces.
+2026-03-29 02:35:19.090 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-29 02:35:19.091 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-03-29 02:35:19.121 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 5 MongoDB repository interfaces.
+2026-03-29 02:35:20.700 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-29 02:35:20.705 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-29 02:35:20.915 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.LayoutSnapshotRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:35:20.917 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.PageAuditEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:35:20.920 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.PageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:35:20.921 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.PageVersionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:35:20.922 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.VersionNodeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:35:20.923 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 188 ms. Found 0 Redis repository interfaces.
+2026-03-29 02:35:22.105 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=98fde444-7f1a-3875-ba8e-60efaf930814
+2026-03-29 02:35:22.551 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'validationConfig' of type [com.purehome.uicore.config.ValidationConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:35:22.556 [main] INFO  c.p.uicore.config.ValidationConfig - Initializing Context-Aware Validation Engine (CAVE)
+2026-03-29 02:35:22.570 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'validationMessageSource' of type [org.springframework.context.support.ResourceBundleMessageSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:35:22.574 [main] INFO  c.p.uicore.config.ValidationConfig - Validation Engine initialized with predictive anomaly detection
+2026-03-29 02:35:22.602 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'validator' of type [org.springframework.validation.beanvalidation.LocalValidatorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:35:23.340 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cacheConfig' of type [com.purehome.uicore.config.CacheConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:35:24.528 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 5201 (http)
+2026-03-29 02:35:24.538 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-29 02:35:24.538 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-03-29 02:35:24.661 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-03-29 02:35:24.662 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 15372 ms
+2026-03-29 02:35:25.376 [main] INFO  c.purehome.uicore.config.RedisConfig - Initializing RedisTemplate with JSON serialization
+2026-03-29 02:35:25.491 [main] INFO  c.purehome.uicore.config.RedisConfig - RedisTemplate initialized successfully
+2026-03-29 02:35:25.586 [main] INFO  c.p.uicore.cache.LayoutCacheManager - LayoutCacheManager initialized - L1 size: 0, L2 enabled: false, L2 available: true, L3 enabled: false
+2026-03-29 02:35:25.664 [main] INFO  c.p.uicore.cache.LayoutCacheManager - LayoutCacheManager metrics initialized
+2026-03-29 02:35:25.726 [main] INFO  c.purehome.uicore.config.MongoConfig - MongoDB Configuration initialized
+2026-03-29 02:35:26.064 [main] INFO  c.purehome.uicore.config.MongoConfig - Initializing MongoDB Client
+2026-03-29 02:35:26.344 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "4.9.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/23.0.2+7-58", "application": {"name": "ui-core-service"}} created with settings MongoClientSettings{readPreference=ReadPreference{name=primaryPreferred, hedgeOptions=null}, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=true}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=MAJORITY}, credential=null, streamFactoryFactory=null, commandListeners=[com.purehome.uicore.config.MongoConfig$1@6b35b0f4], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@2cf669f2, com.mongodb.Jep395RecordCodecProvider@1dd6e400]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='5000 ms', localThreshold='5000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=2000, readTimeoutMS=5000, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=2000, readTimeoutMS=2000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=10, maxWaitTimeMS=5000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[com.purehome.uicore.config.MongoConfig$2@3fe11091], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='ui-core-service', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2026-03-29 02:35:26.367 [cluster-ClusterId{value='69c88fee41a8ad225749dec4', description='ui-core-service'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=28553300}
+2026-03-29 02:35:26.563 [main] INFO  c.purehome.uicore.config.MongoConfig - MongoDB connection verified
+2026-03-29 02:35:26.564 [main] INFO  c.purehome.uicore.config.MongoConfig - MongoDB Client initialized - Pool: 10/100
+2026-03-29 02:35:27.865 [main] INFO  c.p.u.service.impl.LayoutServiceImpl - LayoutServiceImpl initialized with metrics timers
+2026-03-29 02:35:27.916 [main] INFO  c.p.uicore.config.WebSocketConfig - Client inbound channel configured - Pool: 10/50, Queue: 10000
+2026-03-29 02:35:27.950 [main] INFO  c.p.uicore.config.WebSocketConfig - Client outbound channel configured - Pool: 10/50, Queue: 10000
+2026-03-29 02:35:27.962 [main] INFO  c.p.uicore.config.WebSocketConfig - WebSocket message broker configured - Destinations: /topic/pages, /topic/versions, /topic/audit, /topic/alerts
+2026-03-29 02:35:28.234 [main] INFO  c.p.u.event.LayoutEventPublisher - LayoutEventPublisher initialized with metrics timers
+2026-03-29 02:35:28.334 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_COMPONENTS_PER_PAGE - Maximum Components Per Page
+2026-03-29 02:35:28.335 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_COMPONENTS_PER_SECTION - Maximum Components Per Section
+2026-03-29 02:35:28.335 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_SECTIONS_PER_PAGE - Maximum Sections Per Page
+2026-03-29 02:35:28.335 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: GRID_BOUNDARY_CHECK - Grid Boundary Check
+2026-03-29 02:35:28.335 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: NO_OVERLAPPING_COMPONENTS - No Overlapping Components
+2026-03-29 02:35:28.335 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MIN_COMPONENT_SIZE - Minimum Component Size
+2026-03-29 02:35:28.335 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_COMPONENT_SIZE - Maximum Component Size
+2026-03-29 02:35:28.335 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: REQUIRED_SECTIONS - Required Sections
+2026-03-29 02:35:28.335 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MOBILE_RESPONSIVENESS - Mobile Responsiveness
+2026-03-29 02:35:28.335 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: ACCESSIBILITY_MIN_CONTRAST - Minimum Color Contrast
+2026-03-29 02:35:28.335 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: SEO_META_DESCRIPTION - Meta Description Required
+2026-03-29 02:35:28.335 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: PERFORMANCE_BUDGET - Performance Budget
+2026-03-29 02:35:28.335 [main] INFO  c.p.u.v.LayoutConstraintValidator - LayoutConstraintValidator initialized with 12 default constraints
+2026-03-29 02:35:28.341 [main] INFO  c.purehome.uicore.config.CacheConfig - Initializing Caffeine Cache Manager
+2026-03-29 02:35:28.356 [main] INFO  c.purehome.uicore.config.CacheConfig - Initializing Redis Cache Manager
+2026-03-29 02:35:28.567 [main] INFO  c.p.uicore.config.SchedulerConfig - TaskScheduler initialized - Pool size: 10
+2026-03-29 02:35:28.582 [main] INFO  c.p.uicore.config.SchedulerConfig - AsyncExecutor initialized - Core: 16, Max: 64, Queue: 1000
+2026-03-29 02:35:28.587 [main] INFO  c.p.uicore.config.SchedulerConfig - PublishExecutor initialized - Core: 5, Max: 20, Queue: 500
+2026-03-29 02:35:28.592 [main] INFO  c.p.uicore.config.SchedulerConfig - WebhookExecutor initialized - Core: 10, Max: 50, Queue: 2000
+2026-03-29 02:35:28.597 [main] INFO  c.p.uicore.config.SchedulerConfig - AuditExecutor initialized - Core: 32, Max: 64, Queue: 10000
+2026-03-29 02:35:29.027 [main] INFO  c.p.uicore.config.WebSocketConfig - WebSocket transport configured - Message size: 64KB, Send timeout: 20s
+2026-03-29 02:35:29.043 [main] INFO  c.p.uicore.config.WebSocketConfig - WebSocket endpoints registered - /ws (with SockJS), /ws-stomp
+2026-03-29 02:35:29.914 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2026-03-29 02:35:29.933 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2026-03-29 02:35:29.933 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2026-03-29 02:35:29.934 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2026-03-29 02:35:29.935 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'UiCoreScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2026-03-29 02:35:29.936 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'UiCoreScheduler' initialized from an externally provided properties instance.
+2026-03-29 02:35:29.936 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2026-03-29 02:35:29.936 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@3746766b
+2026-03-29 02:35:30.082 [main] WARN  c.p.uicore.config.SecurityConfig - JWT_SECRET environment variable not set. Using default secret for development. DO NOT USE IN PRODUCTION!
+2026-03-29 02:35:30.172 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4b6e296a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@14feab02, org.springframework.security.web.context.SecurityContextHolderFilter@31330344, org.springframework.security.web.header.HeaderWriterFilter@5165783c, org.springframework.web.filter.CorsFilter@5e3934db, org.springframework.security.web.authentication.logout.LogoutFilter@524032f9, com.purehome.uicore.config.SecurityConfig$RateLimitingFilter@7f36b021, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@45c5cd9a, com.purehome.uicore.config.SecurityConfig$UserIdFilter@45a9f3d4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5fb0c234, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5967f0ff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@246ee6d8, org.springframework.security.web.session.SessionManagementFilter@e471cef, org.springframework.security.web.access.ExceptionTranslationFilter@10ecdd85, org.springframework.security.web.access.intercept.AuthorizationFilter@3ad49704]
+2026-03-29 02:35:31.641 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 5201 (http) with context path ''
+2026-03-29 02:35:31.720 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 5202 (http)
+2026-03-29 02:35:31.720 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-29 02:35:31.722 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-03-29 02:35:31.752 [main] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-03-29 02:35:31.752 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 103 ms
+2026-03-29 02:35:31.768 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 9 endpoint(s) beneath base path '/actuator'
+2026-03-29 02:35:31.812 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 5202 (http) with context path ''
+2026-03-29 02:35:31.823 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-03-29 02:35:31.824 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@29e63bc3]]
+2026-03-29 02:35:31.825 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-03-29 02:35:31.825 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2026-03-29 02:35:31.825 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED started.
+2026-03-29 02:35:31.841 [main] INFO  c.p.uicore.UiCoreServiceApplication - Started UiCoreServiceApplication in 25.153 seconds (process running for 31.381)
+2026-03-29 02:35:34.993 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2026-03-29 02:35:34.994 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@29e63bc3]]
+2026-03-29 02:35:34.994 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2026-03-29 02:35:34.994 [SpringApplicationShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED paused.
+2026-03-29 02:35:35.004 [SpringApplicationShutdownHook] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2026-03-29 02:35:35.005 [SpringApplicationShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED shutting down.
+2026-03-29 02:35:35.005 [SpringApplicationShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED paused.
+2026-03-29 02:35:35.005 [SpringApplicationShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED shutdown complete.
+2026-03-29 02:35:35.021 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.MongoConfig - Closing MongoDB connections...
+2026-03-29 02:35:35.042 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.CacheConfig - Cache metrics summary:
+2026-03-29 02:35:35.044 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.CacheConfig -   pages - Hit Rate: 0.00%
+2026-03-29 02:35:35.044 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.CacheConfig -   pageVersions - Hit Rate: 0.00%
+2026-03-29 02:35:35.044 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.CacheConfig -   publishedPages - Hit Rate: 0.00%
+2026-03-29 02:35:39.616 [main] INFO  c.p.uicore.UiCoreServiceApplication - Starting UiCoreServiceApplication using Java 23.0.2 with PID 10844 (C:\Users\rehan\OneDrive\Desktop\purehome\backend\ui-core-service\target\classes started by rehan in C:\Users\rehan\OneDrive\Desktop\purehome\backend\ui-core-service)
+2026-03-29 02:35:39.618 [main] DEBUG c.p.uicore.UiCoreServiceApplication - Running with Spring Boot v3.1.5, Spring v6.0.13
+2026-03-29 02:35:39.618 [main] INFO  c.p.uicore.UiCoreServiceApplication - The following 1 profile is active: "dev"
+2026-03-29 02:35:41.025 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-29 02:35:41.026 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-03-29 02:35:41.189 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 158 ms. Found 5 MongoDB repository interfaces.
+2026-03-29 02:35:41.208 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-29 02:35:41.208 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-03-29 02:35:41.216 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 5 MongoDB repository interfaces.
+2026-03-29 02:35:41.832 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-29 02:35:41.834 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-29 02:35:41.899 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.LayoutSnapshotRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:35:41.900 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.PageAuditEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:35:41.900 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.PageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:35:41.900 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.PageVersionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:35:41.901 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.VersionNodeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:35:41.901 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 0 Redis repository interfaces.
+2026-03-29 02:35:42.255 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=98fde444-7f1a-3875-ba8e-60efaf930814
+2026-03-29 02:35:42.373 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'validationConfig' of type [com.purehome.uicore.config.ValidationConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:35:42.374 [main] INFO  c.p.uicore.config.ValidationConfig - Initializing Context-Aware Validation Engine (CAVE)
+2026-03-29 02:35:42.378 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'validationMessageSource' of type [org.springframework.context.support.ResourceBundleMessageSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:35:42.380 [main] INFO  c.p.uicore.config.ValidationConfig - Validation Engine initialized with predictive anomaly detection
+2026-03-29 02:35:42.388 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'validator' of type [org.springframework.validation.beanvalidation.LocalValidatorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:35:42.772 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cacheConfig' of type [com.purehome.uicore.config.CacheConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:35:43.265 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 5201 (http)
+2026-03-29 02:35:43.278 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-29 02:35:43.278 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-03-29 02:35:43.408 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-03-29 02:35:43.408 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3694 ms
+2026-03-29 02:35:44.011 [main] INFO  c.purehome.uicore.config.RedisConfig - Initializing RedisTemplate with JSON serialization
+2026-03-29 02:35:44.087 [main] INFO  c.purehome.uicore.config.RedisConfig - RedisTemplate initialized successfully
+2026-03-29 02:35:44.142 [main] INFO  c.p.uicore.cache.LayoutCacheManager - LayoutCacheManager initialized - L1 size: 0, L2 enabled: false, L2 available: true, L3 enabled: false
+2026-03-29 02:35:44.171 [main] INFO  c.p.uicore.cache.LayoutCacheManager - LayoutCacheManager metrics initialized
+2026-03-29 02:35:44.207 [main] INFO  c.purehome.uicore.config.MongoConfig - MongoDB Configuration initialized
+2026-03-29 02:35:44.409 [main] INFO  c.purehome.uicore.config.MongoConfig - Initializing MongoDB Client
+2026-03-29 02:35:44.537 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "4.9.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/23.0.2+7-58", "application": {"name": "ui-core-service"}} created with settings MongoClientSettings{readPreference=ReadPreference{name=primaryPreferred, hedgeOptions=null}, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=true}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=MAJORITY}, credential=null, streamFactoryFactory=null, commandListeners=[com.purehome.uicore.config.MongoConfig$1@3333245e], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@147c4523, com.mongodb.Jep395RecordCodecProvider@551725e4]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='5000 ms', localThreshold='5000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=2000, readTimeoutMS=5000, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=2000, readTimeoutMS=2000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=10, maxWaitTimeMS=5000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[com.purehome.uicore.config.MongoConfig$2@760d6350], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='ui-core-service', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2026-03-29 02:35:44.553 [cluster-ClusterId{value='69c89000ef5b572c31345308', description='ui-core-service'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=23708200}
+2026-03-29 02:35:44.690 [main] INFO  c.purehome.uicore.config.MongoConfig - MongoDB connection verified
+2026-03-29 02:35:44.690 [main] INFO  c.purehome.uicore.config.MongoConfig - MongoDB Client initialized - Pool: 10/100
+2026-03-29 02:35:45.799 [main] INFO  c.p.u.service.impl.LayoutServiceImpl - LayoutServiceImpl initialized with metrics timers
+2026-03-29 02:35:45.834 [main] INFO  c.p.uicore.config.WebSocketConfig - Client inbound channel configured - Pool: 10/50, Queue: 10000
+2026-03-29 02:35:45.856 [main] INFO  c.p.uicore.config.WebSocketConfig - Client outbound channel configured - Pool: 10/50, Queue: 10000
+2026-03-29 02:35:45.866 [main] INFO  c.p.uicore.config.WebSocketConfig - WebSocket message broker configured - Destinations: /topic/pages, /topic/versions, /topic/audit, /topic/alerts
+2026-03-29 02:35:46.048 [main] INFO  c.p.u.event.LayoutEventPublisher - LayoutEventPublisher initialized with metrics timers
+2026-03-29 02:35:46.122 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_COMPONENTS_PER_PAGE - Maximum Components Per Page
+2026-03-29 02:35:46.122 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_COMPONENTS_PER_SECTION - Maximum Components Per Section
+2026-03-29 02:35:46.122 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_SECTIONS_PER_PAGE - Maximum Sections Per Page
+2026-03-29 02:35:46.122 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: GRID_BOUNDARY_CHECK - Grid Boundary Check
+2026-03-29 02:35:46.122 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: NO_OVERLAPPING_COMPONENTS - No Overlapping Components
+2026-03-29 02:35:46.122 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MIN_COMPONENT_SIZE - Minimum Component Size
+2026-03-29 02:35:46.122 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_COMPONENT_SIZE - Maximum Component Size
+2026-03-29 02:35:46.122 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: REQUIRED_SECTIONS - Required Sections
+2026-03-29 02:35:46.122 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MOBILE_RESPONSIVENESS - Mobile Responsiveness
+2026-03-29 02:35:46.122 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: ACCESSIBILITY_MIN_CONTRAST - Minimum Color Contrast
+2026-03-29 02:35:46.122 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: SEO_META_DESCRIPTION - Meta Description Required
+2026-03-29 02:35:46.122 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: PERFORMANCE_BUDGET - Performance Budget
+2026-03-29 02:35:46.122 [main] INFO  c.p.u.v.LayoutConstraintValidator - LayoutConstraintValidator initialized with 12 default constraints
+2026-03-29 02:35:46.131 [main] INFO  c.purehome.uicore.config.CacheConfig - Initializing Caffeine Cache Manager
+2026-03-29 02:35:46.142 [main] INFO  c.purehome.uicore.config.CacheConfig - Initializing Redis Cache Manager
+2026-03-29 02:35:46.339 [main] INFO  c.p.uicore.config.SchedulerConfig - TaskScheduler initialized - Pool size: 10
+2026-03-29 02:35:46.353 [main] INFO  c.p.uicore.config.SchedulerConfig - AsyncExecutor initialized - Core: 16, Max: 64, Queue: 1000
+2026-03-29 02:35:46.360 [main] INFO  c.p.uicore.config.SchedulerConfig - PublishExecutor initialized - Core: 5, Max: 20, Queue: 500
+2026-03-29 02:35:46.365 [main] INFO  c.p.uicore.config.SchedulerConfig - WebhookExecutor initialized - Core: 10, Max: 50, Queue: 2000
+2026-03-29 02:35:46.371 [main] INFO  c.p.uicore.config.SchedulerConfig - AuditExecutor initialized - Core: 32, Max: 64, Queue: 10000
+2026-03-29 02:35:46.742 [main] INFO  c.p.uicore.config.WebSocketConfig - WebSocket transport configured - Message size: 64KB, Send timeout: 20s
+2026-03-29 02:35:46.756 [main] INFO  c.p.uicore.config.WebSocketConfig - WebSocket endpoints registered - /ws (with SockJS), /ws-stomp
+2026-03-29 02:35:47.606 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2026-03-29 02:35:47.619 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2026-03-29 02:35:47.619 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2026-03-29 02:35:47.620 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2026-03-29 02:35:47.621 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'UiCoreScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2026-03-29 02:35:47.621 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'UiCoreScheduler' initialized from an externally provided properties instance.
+2026-03-29 02:35:47.621 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2026-03-29 02:35:47.621 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@5e435f0d
+2026-03-29 02:35:47.737 [main] WARN  c.p.uicore.config.SecurityConfig - JWT_SECRET environment variable not set. Using default secret for development. DO NOT USE IN PRODUCTION!
+2026-03-29 02:35:47.816 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6b8de9dc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a8fa30a, org.springframework.security.web.context.SecurityContextHolderFilter@238fcafa, org.springframework.security.web.header.HeaderWriterFilter@4d92e9da, org.springframework.web.filter.CorsFilter@522941b2, org.springframework.security.web.authentication.logout.LogoutFilter@5ef22587, com.purehome.uicore.config.SecurityConfig$RateLimitingFilter@4e44b713, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@2daf2351, com.purehome.uicore.config.SecurityConfig$UserIdFilter@4a83740e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2fb5e706, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10bf2726, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d8319a7, org.springframework.security.web.session.SessionManagementFilter@5d237827, org.springframework.security.web.access.ExceptionTranslationFilter@48b1f8f5, org.springframework.security.web.access.intercept.AuthorizationFilter@6212dc7d]
+2026-03-29 02:35:49.125 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 5201 (http) with context path ''
+2026-03-29 02:35:49.211 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 5202 (http)
+2026-03-29 02:35:49.212 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-29 02:35:49.213 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-03-29 02:35:49.243 [main] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-03-29 02:35:49.243 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 106 ms
+2026-03-29 02:35:49.260 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 9 endpoint(s) beneath base path '/actuator'
+2026-03-29 02:35:49.305 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 5202 (http) with context path ''
+2026-03-29 02:35:49.312 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-03-29 02:35:49.313 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@f5ee0d8]]
+2026-03-29 02:35:49.313 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-03-29 02:35:49.313 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2026-03-29 02:35:49.313 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED started.
+2026-03-29 02:35:49.329 [main] INFO  c.p.uicore.UiCoreServiceApplication - Started UiCoreServiceApplication in 10.333 seconds (process running for 11.793)
+2026-03-29 02:36:44.722 [http-nio-5201-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-29 02:36:44.724 [http-nio-5201-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-29 02:36:44.731 [http-nio-5201-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-03-29 02:36:45.237 [http-nio-5201-exec-1] INFO  c.p.u.controller.DevAuthController - Generated admin token for development - User: admin-001, Expires: 24 hours
+2026-03-29 02:36:47.932 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2026-03-29 02:37:21.926 [http-nio-5201-exec-3] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:37:22.836 [http-nio-5201-exec-3] INFO  c.p.uicore.controller.PageController - Creating page in workspace: default by user: admin-001
+2026-03-29 02:37:22.930 [http-nio-5201-exec-3] INFO  c.p.u.service.impl.PageServiceImpl - Creating page in workspace default by user admin-001
+2026-03-29 02:37:23.417 [http-nio-5201-exec-3] INFO  c.p.u.service.impl.PageServiceImpl - Page created with ID: 69c89063ef5b572c31345309, slug: drag-drop-test-page-3
+2026-03-29 02:39:12.597 [http-nio-5201-exec-4] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:39:12.698 [http-nio-5201-exec-4] INFO  c.p.u.controller.LayoutController - Ultra drag initiated - Page: 69c89063ef5b572c31345309, Component: comp_002, User: admin-001, Position: (300,200)
+2026-03-29 02:39:12.702 [http-nio-5201-exec-4] DEBUG c.p.u.service.impl.LayoutServiceImpl - Neural prediction - Page: 69c89063ef5b572c31345309, Component: comp_002, User: admin-001
+2026-03-29 02:39:12.829 [http-nio-5201-exec-4] ERROR c.p.u.controller.LayoutController - Drag operation failed - Page: 69c89063ef5b572c31345309, Component: comp_002, Error: Component not found: comp_002 in page: 69c89063ef5b572c31345309
+com.purehome.uicore.exception.ComponentNotFoundException: Component not found: comp_002 in page: 69c89063ef5b572c31345309
+	at com.purehome.uicore.service.impl.LayoutServiceImpl.lambda$predictDragDropTargets$2(LayoutServiceImpl.java:714)
+	at io.micrometer.core.instrument.composite.CompositeTimer.record(CompositeTimer.java:69)
+	at com.purehome.uicore.service.impl.LayoutServiceImpl.predictDragDropTargets(LayoutServiceImpl.java:700)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
+	at com.purehome.uicore.service.impl.LayoutServiceImpl$$SpringCGLIB$$0.predictDragDropTargets(<generated>)
+	at com.purehome.uicore.controller.LayoutController.lambda$dragComponent$0(LayoutController.java:121)
+	at io.micrometer.core.instrument.composite.CompositeTimer.record(CompositeTimer.java:69)
+	at com.purehome.uicore.controller.LayoutController.dragComponent(LayoutController.java:120)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:199)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
+	at com.purehome.uicore.controller.LayoutController$$SpringCGLIB$$0.dragComponent(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at com.purehome.uicore.config.SecurityConfig$UserIdFilter.doFilterInternal(SecurityConfig.java:215)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:145)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at com.purehome.uicore.config.SecurityConfig$RateLimitingFilter.doFilterInternal(SecurityConfig.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-03-29 02:39:12.860 [http-nio-5201-exec-4] ERROR c.p.u.e.GlobalExceptionHandler - Unexpected error occurred
+com.purehome.uicore.exception.ComponentNotFoundException: Component not found: comp_002 in page: 69c89063ef5b572c31345309
+	at com.purehome.uicore.service.impl.LayoutServiceImpl.lambda$predictDragDropTargets$2(LayoutServiceImpl.java:714)
+	at io.micrometer.core.instrument.composite.CompositeTimer.record(CompositeTimer.java:69)
+	at com.purehome.uicore.service.impl.LayoutServiceImpl.predictDragDropTargets(LayoutServiceImpl.java:700)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
+	at com.purehome.uicore.service.impl.LayoutServiceImpl$$SpringCGLIB$$0.predictDragDropTargets(<generated>)
+	at com.purehome.uicore.controller.LayoutController.lambda$dragComponent$0(LayoutController.java:121)
+	at io.micrometer.core.instrument.composite.CompositeTimer.record(CompositeTimer.java:69)
+	at com.purehome.uicore.controller.LayoutController.dragComponent(LayoutController.java:120)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:199)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
+	at com.purehome.uicore.controller.LayoutController$$SpringCGLIB$$0.dragComponent(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at com.purehome.uicore.config.SecurityConfig$UserIdFilter.doFilterInternal(SecurityConfig.java:215)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:145)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at com.purehome.uicore.config.SecurityConfig$RateLimitingFilter.doFilterInternal(SecurityConfig.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-03-29 02:41:57.993 [http-nio-5201-exec-5] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:41:58.000 [http-nio-5201-exec-5] INFO  c.p.uicore.controller.PageController - Creating page in workspace: default by user: admin-001
+2026-03-29 02:41:58.001 [http-nio-5201-exec-5] INFO  c.p.u.service.impl.PageServiceImpl - Creating page in workspace default by user admin-001
+2026-03-29 02:41:58.037 [http-nio-5201-exec-5] INFO  c.p.u.service.impl.PageServiceImpl - Page created with ID: 69c89176ef5b572c3134530a, slug: drag-drop-test-page-4
+2026-03-29 02:42:26.768 [http-nio-5201-exec-6] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:42:26.797 [http-nio-5201-exec-6] INFO  c.p.uicore.controller.PageController - Updating page: 69c89176ef5b572c3134530a by user: admin-001
+2026-03-29 02:42:26.802 [http-nio-5201-exec-6] INFO  c.p.u.service.impl.PageServiceImpl - Updating page 69c89176ef5b572c3134530a by user admin-001
+2026-03-29 02:42:26.888 [http-nio-5201-exec-6] INFO  c.p.u.service.impl.PageServiceImpl - Page updated: 69c89176ef5b572c3134530a, version: 1
+2026-03-29 02:42:55.159 [http-nio-5201-exec-9] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:42:55.174 [http-nio-5201-exec-9] INFO  c.p.u.controller.LayoutController - Ultra drag initiated - Page: 69c89176ef5b572c3134530a, Component: comp_002, User: admin-001, Position: (300,200)
+2026-03-29 02:42:55.175 [http-nio-5201-exec-9] DEBUG c.p.u.service.impl.LayoutServiceImpl - Neural prediction - Page: 69c89176ef5b572c3134530a, Component: comp_002, User: admin-001
+2026-03-29 02:42:55.252 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.uicore.service.WebSocketService - Broadcast sent to: /topic/layouts/69c89176ef5b572c3134530a/drag
+2026-03-29 02:43:22.955 [http-nio-5201-exec-8] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:43:23.019 [http-nio-5201-exec-8] WARN  c.p.u.e.GlobalExceptionHandler - Validation failed: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<com.purehome.uicore.dto.response.DropResponse> com.purehome.uicore.controller.LayoutController.dropComponent(java.lang.String,com.purehome.uicore.dto.request.DropRequest,java.lang.String,java.lang.String,java.lang.String) with 2 errors: [Field error in object 'dropRequest' on field 'versionVector': rejected value [null]; codes [NotBlank.dropRequest.versionVector,NotBlank.versionVector,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [dropRequest.versionVector,versionVector]; arguments []; default message [versionVector]]; default message [Version vector is required]] [Field error in object 'dropRequest' on field 'dragSessionId': rejected value [null]; codes [NotBlank.dropRequest.dragSessionId,NotBlank.dragSessionId,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [dropRequest.dragSessionId,dragSessionId]; arguments []; default message [dragSessionId]]; default message [Drag session ID is required]] 
+2026-03-29 02:43:48.699 [http-nio-5201-exec-1] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:43:48.711 [http-nio-5201-exec-1] ERROR c.p.u.e.GlobalExceptionHandler - Unexpected error occurred
+org.springframework.web.bind.MissingRequestHeaderException: Required request header 'X-Version-Vector' for method parameter type String is not present
+	at org.springframework.web.method.annotation.RequestHeaderMethodArgumentResolver.handleMissingValue(RequestHeaderMethodArgumentResolver.java:87)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.handleMissingValue(AbstractNamedValueMethodArgumentResolver.java:226)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:114)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:179)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:146)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at com.purehome.uicore.config.SecurityConfig$UserIdFilter.doFilterInternal(SecurityConfig.java:215)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:145)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at com.purehome.uicore.config.SecurityConfig$RateLimitingFilter.doFilterInternal(SecurityConfig.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2026-03-29 02:44:41.915 [http-nio-5201-exec-3] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:44:41.924 [http-nio-5201-exec-3] WARN  c.p.u.e.GlobalExceptionHandler - Validation failed: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<com.purehome.uicore.dto.response.DropResponse> com.purehome.uicore.controller.LayoutController.dropComponent(java.lang.String,com.purehome.uicore.dto.request.DropRequest,java.lang.String,java.lang.String,java.lang.String): [Field error in object 'dropRequest' on field 'versionVector': rejected value [null]; codes [NotBlank.dropRequest.versionVector,NotBlank.versionVector,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [dropRequest.versionVector,versionVector]; arguments []; default message [versionVector]]; default message [Version vector is required]] 
+2026-03-29 02:46:00.559 [http-nio-5201-exec-2] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:46:00.573 [http-nio-5201-exec-2] INFO  c.p.u.controller.LayoutController - Ultra drop initiated - Page: 69c89176ef5b572c3134530a, Component: comp_002, Target: section_1/2, Vector: {}
+2026-03-29 02:46:00.576 [http-nio-5201-exec-2] INFO  c.p.u.service.impl.LayoutServiceImpl - Executing drop with quantum conflict resolution - Page: 69c89176ef5b572c3134530a, Component: comp_002
+2026-03-29 02:46:00.602 [http-nio-5201-exec-2] INFO  c.p.u.s.impl.PageVersionServiceImpl - Creating version for page 69c89176ef5b572c3134530a by user admin-001, type: LAYOUT_CHANGE
+2026-03-29 02:46:00.678 [http-nio-5201-exec-2] INFO  c.p.u.s.impl.PageVersionServiceImpl - Version 1 created for page 69c89176ef5b572c3134530a
+2026-03-29 02:46:00.693 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.uicore.service.WebSocketService - Broadcast sent to: /topic/layouts/69c89176ef5b572c3134530a/updates
+2026-03-29 02:46:00.694 [ForkJoinPool.commonPool-worker-2] DEBUG c.p.u.controller.LayoutController - Audit: Drop event recorded - Page: 69c89176ef5b572c3134530a, Component: comp_002, User: admin-001, Success: true
+2026-03-29 02:46:22.864 [http-nio-5201-exec-5] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:46:22.890 [http-nio-5201-exec-5] DEBUG c.p.u.controller.LayoutController - Rendering layout - Page: 69c89176ef5b572c3134530a, Device: desktop, Preview: false, Viewport: nullxnull
+2026-03-29 02:46:22.893 [http-nio-5201-exec-5] WARN  c.p.u.e.GlobalExceptionHandler - Illegal argument: Cannot find cache named 'renderedLayouts' for Builder[public com.purehome.uicore.dto.response.RenderResponse com.purehome.uicore.service.impl.LayoutServiceImpl.renderLayout(java.lang.String,java.lang.String,boolean,java.lang.String,java.lang.Integer,java.lang.Integer)] caches=[renderedLayouts] | key='#pageId + ':' + #deviceType + ':' + #preview' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+2026-03-29 02:46:53.845 [http-nio-5201-exec-6] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:46:53.855 [http-nio-5201-exec-6] DEBUG c.p.u.controller.LayoutController - Rendering layout - Page: 69c89176ef5b572c3134530a, Device: desktop, Preview: false, Viewport: nullxnull
+2026-03-29 02:46:53.855 [http-nio-5201-exec-6] WARN  c.p.u.e.GlobalExceptionHandler - Illegal argument: Cannot find cache named 'renderedLayouts' for Builder[public com.purehome.uicore.dto.response.RenderResponse com.purehome.uicore.service.impl.LayoutServiceImpl.renderLayout(java.lang.String,java.lang.String,boolean,java.lang.String,java.lang.Integer,java.lang.Integer)] caches=[renderedLayouts] | key='#pageId + ':' + #deviceType + ':' + #preview' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+2026-03-29 02:49:33.068 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2026-03-29 02:49:33.069 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@f5ee0d8]]
+2026-03-29 02:49:33.069 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2026-03-29 02:49:33.069 [SpringApplicationShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED paused.
+2026-03-29 02:49:33.081 [SpringApplicationShutdownHook] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2026-03-29 02:49:33.082 [SpringApplicationShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED shutting down.
+2026-03-29 02:49:33.082 [SpringApplicationShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED paused.
+2026-03-29 02:49:33.082 [SpringApplicationShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED shutdown complete.
+2026-03-29 02:49:33.096 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.MongoConfig - Closing MongoDB connections...
+2026-03-29 02:49:33.110 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.CacheConfig - Cache metrics summary:
+2026-03-29 02:49:33.110 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.CacheConfig -   pages - Hit Rate: 0.00%
+2026-03-29 02:49:33.110 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.CacheConfig -   pageVersions - Hit Rate: 0.00%
+2026-03-29 02:49:33.110 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.CacheConfig -   publishedPages - Hit Rate: 0.00%
+2026-03-29 02:49:37.006 [main] INFO  c.p.uicore.UiCoreServiceApplication - Starting UiCoreServiceApplication using Java 23.0.2 with PID 17072 (C:\Users\rehan\OneDrive\Desktop\purehome\backend\ui-core-service\target\classes started by rehan in C:\Users\rehan\OneDrive\Desktop\purehome\backend\ui-core-service)
+2026-03-29 02:49:37.009 [main] DEBUG c.p.uicore.UiCoreServiceApplication - Running with Spring Boot v3.1.5, Spring v6.0.13
+2026-03-29 02:49:37.009 [main] INFO  c.p.uicore.UiCoreServiceApplication - The following 1 profile is active: "dev"
+2026-03-29 02:49:38.455 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-29 02:49:38.456 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-03-29 02:49:38.638 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 177 ms. Found 5 MongoDB repository interfaces.
+2026-03-29 02:49:38.653 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-29 02:49:38.653 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-03-29 02:49:38.672 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 5 MongoDB repository interfaces.
+2026-03-29 02:49:39.328 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-29 02:49:39.330 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-29 02:49:39.381 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.LayoutSnapshotRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:49:39.381 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.PageAuditEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:49:39.381 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.PageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:49:39.382 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.PageVersionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:49:39.382 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.VersionNodeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:49:39.382 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 0 Redis repository interfaces.
+2026-03-29 02:49:39.750 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=98fde444-7f1a-3875-ba8e-60efaf930814
+2026-03-29 02:49:39.877 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'validationConfig' of type [com.purehome.uicore.config.ValidationConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:49:39.878 [main] INFO  c.p.uicore.config.ValidationConfig - Initializing Context-Aware Validation Engine (CAVE)
+2026-03-29 02:49:39.881 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'validationMessageSource' of type [org.springframework.context.support.ResourceBundleMessageSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:49:39.883 [main] INFO  c.p.uicore.config.ValidationConfig - Validation Engine initialized with predictive anomaly detection
+2026-03-29 02:49:39.890 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'validator' of type [org.springframework.validation.beanvalidation.LocalValidatorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:49:40.265 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cacheConfig' of type [com.purehome.uicore.config.CacheConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:49:40.724 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 5201 (http)
+2026-03-29 02:49:40.734 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-29 02:49:40.734 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-03-29 02:49:40.860 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-03-29 02:49:40.860 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3756 ms
+2026-03-29 02:49:41.459 [main] INFO  c.purehome.uicore.config.RedisConfig - Initializing RedisTemplate with JSON serialization
+2026-03-29 02:49:41.549 [main] INFO  c.purehome.uicore.config.RedisConfig - RedisTemplate initialized successfully
+2026-03-29 02:49:41.623 [main] INFO  c.p.uicore.cache.LayoutCacheManager - LayoutCacheManager initialized - L1 size: 0, L2 enabled: false, L2 available: true, L3 enabled: false
+2026-03-29 02:49:41.657 [main] INFO  c.p.uicore.cache.LayoutCacheManager - LayoutCacheManager metrics initialized
+2026-03-29 02:49:41.708 [main] INFO  c.purehome.uicore.config.MongoConfig - MongoDB Configuration initialized
+2026-03-29 02:49:41.905 [main] INFO  c.purehome.uicore.config.MongoConfig - Initializing MongoDB Client
+2026-03-29 02:49:42.051 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "4.9.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/23.0.2+7-58", "application": {"name": "ui-core-service"}} created with settings MongoClientSettings{readPreference=ReadPreference{name=primaryPreferred, hedgeOptions=null}, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=true}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=MAJORITY}, credential=null, streamFactoryFactory=null, commandListeners=[com.purehome.uicore.config.MongoConfig$1@45b2b0ed], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@33478a2f, com.mongodb.Jep395RecordCodecProvider@24e31f06]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='5000 ms', localThreshold='5000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=2000, readTimeoutMS=5000, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=2000, readTimeoutMS=2000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=10, maxWaitTimeMS=5000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[com.purehome.uicore.config.MongoConfig$2@5d260494], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='ui-core-service', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2026-03-29 02:49:42.064 [cluster-ClusterId{value='69c893453f2c9069fd14b281', description='ui-core-service'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=23116600}
+2026-03-29 02:49:42.197 [main] INFO  c.purehome.uicore.config.MongoConfig - MongoDB connection verified
+2026-03-29 02:49:42.198 [main] INFO  c.purehome.uicore.config.MongoConfig - MongoDB Client initialized - Pool: 10/100
+2026-03-29 02:49:43.282 [main] INFO  c.p.u.service.impl.LayoutServiceImpl - LayoutServiceImpl initialized with metrics timers
+2026-03-29 02:49:43.318 [main] INFO  c.p.uicore.config.WebSocketConfig - Client inbound channel configured - Pool: 10/50, Queue: 10000
+2026-03-29 02:49:43.338 [main] INFO  c.p.uicore.config.WebSocketConfig - Client outbound channel configured - Pool: 10/50, Queue: 10000
+2026-03-29 02:49:43.346 [main] INFO  c.p.uicore.config.WebSocketConfig - WebSocket message broker configured - Destinations: /topic/pages, /topic/versions, /topic/audit, /topic/alerts
+2026-03-29 02:49:43.562 [main] INFO  c.p.u.event.LayoutEventPublisher - LayoutEventPublisher initialized with metrics timers
+2026-03-29 02:49:43.640 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_COMPONENTS_PER_PAGE - Maximum Components Per Page
+2026-03-29 02:49:43.641 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_COMPONENTS_PER_SECTION - Maximum Components Per Section
+2026-03-29 02:49:43.641 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_SECTIONS_PER_PAGE - Maximum Sections Per Page
+2026-03-29 02:49:43.641 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: GRID_BOUNDARY_CHECK - Grid Boundary Check
+2026-03-29 02:49:43.641 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: NO_OVERLAPPING_COMPONENTS - No Overlapping Components
+2026-03-29 02:49:43.641 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MIN_COMPONENT_SIZE - Minimum Component Size
+2026-03-29 02:49:43.641 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_COMPONENT_SIZE - Maximum Component Size
+2026-03-29 02:49:43.641 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: REQUIRED_SECTIONS - Required Sections
+2026-03-29 02:49:43.641 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MOBILE_RESPONSIVENESS - Mobile Responsiveness
+2026-03-29 02:49:43.641 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: ACCESSIBILITY_MIN_CONTRAST - Minimum Color Contrast
+2026-03-29 02:49:43.642 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: SEO_META_DESCRIPTION - Meta Description Required
+2026-03-29 02:49:43.642 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: PERFORMANCE_BUDGET - Performance Budget
+2026-03-29 02:49:43.642 [main] INFO  c.p.u.v.LayoutConstraintValidator - LayoutConstraintValidator initialized with 12 default constraints
+2026-03-29 02:49:43.649 [main] INFO  c.purehome.uicore.config.CacheConfig - Initializing Caffeine Cache Manager
+2026-03-29 02:49:43.662 [main] INFO  c.purehome.uicore.config.CacheConfig - Initializing Redis Cache Manager
+2026-03-29 02:49:43.874 [main] INFO  c.p.uicore.config.SchedulerConfig - TaskScheduler initialized - Pool size: 10
+2026-03-29 02:49:43.887 [main] INFO  c.p.uicore.config.SchedulerConfig - AsyncExecutor initialized - Core: 16, Max: 64, Queue: 1000
+2026-03-29 02:49:43.894 [main] INFO  c.p.uicore.config.SchedulerConfig - PublishExecutor initialized - Core: 5, Max: 20, Queue: 500
+2026-03-29 02:49:43.899 [main] INFO  c.p.uicore.config.SchedulerConfig - WebhookExecutor initialized - Core: 10, Max: 50, Queue: 2000
+2026-03-29 02:49:43.904 [main] INFO  c.p.uicore.config.SchedulerConfig - AuditExecutor initialized - Core: 32, Max: 64, Queue: 10000
+2026-03-29 02:49:44.312 [main] INFO  c.p.uicore.config.WebSocketConfig - WebSocket transport configured - Message size: 64KB, Send timeout: 20s
+2026-03-29 02:49:44.326 [main] INFO  c.p.uicore.config.WebSocketConfig - WebSocket endpoints registered - /ws (with SockJS), /ws-stomp
+2026-03-29 02:49:45.145 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2026-03-29 02:49:45.159 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2026-03-29 02:49:45.159 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2026-03-29 02:49:45.160 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2026-03-29 02:49:45.161 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'UiCoreScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2026-03-29 02:49:45.161 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'UiCoreScheduler' initialized from an externally provided properties instance.
+2026-03-29 02:49:45.161 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2026-03-29 02:49:45.161 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@d4e17ec
+2026-03-29 02:49:45.300 [main] WARN  c.p.uicore.config.SecurityConfig - JWT_SECRET environment variable not set. Using default secret for development. DO NOT USE IN PRODUCTION!
+2026-03-29 02:49:45.405 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3d7d72f2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3479b4cd, org.springframework.security.web.context.SecurityContextHolderFilter@21f134a2, org.springframework.security.web.header.HeaderWriterFilter@5cbf423b, org.springframework.web.filter.CorsFilter@34b63def, org.springframework.security.web.authentication.logout.LogoutFilter@50588ef6, com.purehome.uicore.config.SecurityConfig$RateLimitingFilter@4d92e9da, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@524032f9, com.purehome.uicore.config.SecurityConfig$UserIdFilter@1baef878, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42bd4a4c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78ded8c9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6208f81c, org.springframework.security.web.session.SessionManagementFilter@171b82ea, org.springframework.security.web.access.ExceptionTranslationFilter@622be81d, org.springframework.security.web.access.intercept.AuthorizationFilter@74af4b0]
+2026-03-29 02:49:46.922 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 5201 (http) with context path ''
+2026-03-29 02:49:47.040 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 5202 (http)
+2026-03-29 02:49:47.042 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-29 02:49:47.042 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-03-29 02:49:47.112 [main] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-03-29 02:49:47.112 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 175 ms
+2026-03-29 02:49:47.137 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 9 endpoint(s) beneath base path '/actuator'
+2026-03-29 02:49:47.216 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 5202 (http) with context path ''
+2026-03-29 02:49:47.230 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-03-29 02:49:47.231 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4d687300]]
+2026-03-29 02:49:47.232 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-03-29 02:49:47.232 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2026-03-29 02:49:47.232 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED started.
+2026-03-29 02:49:47.276 [main] INFO  c.p.uicore.UiCoreServiceApplication - Started UiCoreServiceApplication in 10.842 seconds (process running for 12.18)
+2026-03-29 02:49:47.739 [RMI TCP Connection(1)-192.168.0.11] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-29 02:49:47.739 [RMI TCP Connection(1)-192.168.0.11] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-29 02:49:47.743 [RMI TCP Connection(1)-192.168.0.11] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-03-29 02:49:58.829 [http-nio-5201-exec-1] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:49:59.097 [http-nio-5201-exec-1] WARN  c.p.u.e.GlobalExceptionHandler - Validation failed: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<com.purehome.uicore.dto.response.BatchReorderResponse> com.purehome.uicore.controller.LayoutController.batchReorderComponents(java.lang.String,com.purehome.uicore.dto.request.BatchReorderRequest,java.lang.String,java.lang.String): [Field error in object 'batchReorderRequest' on field 'versionVector': rejected value [null]; codes [NotBlank.batchReorderRequest.versionVector,NotBlank.versionVector,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [batchReorderRequest.versionVector,versionVector]; arguments []; default message [versionVector]]; default message [Version vector is required]] 
+2026-03-29 02:50:45.494 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2026-03-29 02:50:56.628 [http-nio-5201-exec-2] INFO  c.p.u.controller.DevAuthController - Generated admin token for development - User: admin-001, Expires: 24 hours
+2026-03-29 02:51:19.484 [http-nio-5201-exec-4] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:51:19.515 [http-nio-5201-exec-4] INFO  c.p.u.controller.LayoutController - Batch reorder - Page: 69c89176ef5b572c3134530a, Section: section_1, Components: 3
+2026-03-29 02:51:19.516 [http-nio-5201-exec-4] INFO  c.p.u.service.impl.LayoutServiceImpl - Batch reorder - Page: 69c89176ef5b572c3134530a, Section: section_1, Components: 3
+2026-03-29 02:51:19.689 [http-nio-5201-exec-4] INFO  c.p.u.s.impl.PageVersionServiceImpl - Creating version for page 69c89176ef5b572c3134530a by user admin-001, type: LAYOUT_CHANGE
+2026-03-29 02:51:19.791 [http-nio-5201-exec-4] INFO  c.p.u.s.impl.PageVersionServiceImpl - Version 2 created for page 69c89176ef5b572c3134530a
+2026-03-29 02:51:19.848 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.uicore.service.WebSocketService - Broadcast sent to: /topic/layouts/69c89176ef5b572c3134530a/updates
+2026-03-29 02:51:43.702 [http-nio-5201-exec-5] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:51:43.715 [http-nio-5201-exec-5] DEBUG c.p.u.controller.LayoutController - Rendering layout - Page: 69c89176ef5b572c3134530a, Device: desktop, Preview: false, Viewport: nullxnull
+2026-03-29 02:51:43.719 [http-nio-5201-exec-5] WARN  c.p.u.e.GlobalExceptionHandler - Illegal argument: Cannot find cache named 'renderedLayouts' for Builder[public com.purehome.uicore.dto.response.RenderResponse com.purehome.uicore.service.impl.LayoutServiceImpl.renderLayout(java.lang.String,java.lang.String,boolean,java.lang.String,java.lang.Integer,java.lang.Integer)] caches=[renderedLayouts] | key='#pageId + ':' + #deviceType + ':' + #preview' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+2026-03-29 02:58:51.245 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2026-03-29 02:58:51.246 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4d687300]]
+2026-03-29 02:58:51.246 [SpringApplicationShutdownHook] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2026-03-29 02:58:51.246 [SpringApplicationShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED paused.
+2026-03-29 02:58:51.260 [SpringApplicationShutdownHook] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2026-03-29 02:58:51.260 [SpringApplicationShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED shutting down.
+2026-03-29 02:58:51.260 [SpringApplicationShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED paused.
+2026-03-29 02:58:51.260 [SpringApplicationShutdownHook] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED shutdown complete.
+2026-03-29 02:58:51.278 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.MongoConfig - Closing MongoDB connections...
+2026-03-29 02:58:51.402 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.CacheConfig - Cache metrics summary:
+2026-03-29 02:58:51.402 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.CacheConfig -   pages - Hit Rate: 0.00%
+2026-03-29 02:58:51.402 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.CacheConfig -   pageVersions - Hit Rate: 0.00%
+2026-03-29 02:58:51.402 [SpringApplicationShutdownHook] INFO  c.purehome.uicore.config.CacheConfig -   publishedPages - Hit Rate: 0.00%
+2026-03-29 02:58:58.060 [main] INFO  c.p.uicore.UiCoreServiceApplication - Starting UiCoreServiceApplication using Java 23.0.2 with PID 19428 (C:\Users\rehan\OneDrive\Desktop\purehome\backend\ui-core-service\target\classes started by rehan in C:\Users\rehan\OneDrive\Desktop\purehome\backend\ui-core-service)
+2026-03-29 02:58:58.062 [main] DEBUG c.p.uicore.UiCoreServiceApplication - Running with Spring Boot v3.1.5, Spring v6.0.13
+2026-03-29 02:58:58.063 [main] INFO  c.p.uicore.UiCoreServiceApplication - The following 1 profile is active: "dev"
+2026-03-29 02:58:59.434 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-29 02:58:59.435 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-03-29 02:58:59.604 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 165 ms. Found 5 MongoDB repository interfaces.
+2026-03-29 02:58:59.618 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-29 02:58:59.618 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-03-29 02:58:59.627 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 5 MongoDB repository interfaces.
+2026-03-29 02:59:00.238 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-29 02:59:00.240 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-29 02:59:00.288 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.LayoutSnapshotRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:59:00.289 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.PageAuditEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:59:00.289 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.PageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:59:00.289 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.PageVersionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:59:00.290 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.purehome.uicore.repository.VersionNodeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-29 02:59:00.290 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 0 Redis repository interfaces.
+2026-03-29 02:59:00.646 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=98fde444-7f1a-3875-ba8e-60efaf930814
+2026-03-29 02:59:00.765 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'validationConfig' of type [com.purehome.uicore.config.ValidationConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:59:00.767 [main] INFO  c.p.uicore.config.ValidationConfig - Initializing Context-Aware Validation Engine (CAVE)
+2026-03-29 02:59:00.771 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'validationMessageSource' of type [org.springframework.context.support.ResourceBundleMessageSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:59:00.772 [main] INFO  c.p.uicore.config.ValidationConfig - Validation Engine initialized with predictive anomaly detection
+2026-03-29 02:59:00.779 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'validator' of type [org.springframework.validation.beanvalidation.LocalValidatorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:59:01.136 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cacheConfig' of type [com.purehome.uicore.config.CacheConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-03-29 02:59:01.572 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 5201 (http)
+2026-03-29 02:59:01.581 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-29 02:59:01.581 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-03-29 02:59:01.687 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-03-29 02:59:01.688 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3532 ms
+2026-03-29 02:59:02.257 [main] INFO  c.purehome.uicore.config.RedisConfig - Initializing RedisTemplate with JSON serialization
+2026-03-29 02:59:02.331 [main] INFO  c.purehome.uicore.config.RedisConfig - RedisTemplate initialized successfully
+2026-03-29 02:59:02.393 [main] INFO  c.p.uicore.cache.LayoutCacheManager - LayoutCacheManager initialized - L1 size: 0, L2 enabled: false, L2 available: true, L3 enabled: false
+2026-03-29 02:59:02.422 [main] INFO  c.p.uicore.cache.LayoutCacheManager - LayoutCacheManager metrics initialized
+2026-03-29 02:59:02.462 [main] INFO  c.purehome.uicore.config.MongoConfig - MongoDB Configuration initialized
+2026-03-29 02:59:02.658 [main] INFO  c.purehome.uicore.config.MongoConfig - Initializing MongoDB Client
+2026-03-29 02:59:02.795 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "4.9.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/23.0.2+7-58", "application": {"name": "ui-core-service"}} created with settings MongoClientSettings{readPreference=ReadPreference{name=primaryPreferred, hedgeOptions=null}, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=true}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=MAJORITY}, credential=null, streamFactoryFactory=null, commandListeners=[com.purehome.uicore.config.MongoConfig$1@4a1c14a6], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@1bc1aa9e, com.mongodb.Jep395RecordCodecProvider@1e366f0f]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='5000 ms', localThreshold='5000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=2000, readTimeoutMS=5000, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=2000, readTimeoutMS=2000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=10, maxWaitTimeMS=5000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[com.purehome.uicore.config.MongoConfig$2@647b3fd3], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='ui-core-service', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2026-03-29 02:59:02.810 [cluster-ClusterId{value='69c895762461477a00108074', description='ui-core-service'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=22122400}
+2026-03-29 02:59:02.944 [main] INFO  c.purehome.uicore.config.MongoConfig - MongoDB connection verified
+2026-03-29 02:59:02.944 [main] INFO  c.purehome.uicore.config.MongoConfig - MongoDB Client initialized - Pool: 10/100
+2026-03-29 02:59:04.030 [main] INFO  c.p.u.service.impl.LayoutServiceImpl - LayoutServiceImpl initialized with metrics timers
+2026-03-29 02:59:04.063 [main] INFO  c.p.uicore.config.WebSocketConfig - Client inbound channel configured - Pool: 10/50, Queue: 10000
+2026-03-29 02:59:04.083 [main] INFO  c.p.uicore.config.WebSocketConfig - Client outbound channel configured - Pool: 10/50, Queue: 10000
+2026-03-29 02:59:04.091 [main] INFO  c.p.uicore.config.WebSocketConfig - WebSocket message broker configured - Destinations: /topic/pages, /topic/versions, /topic/audit, /topic/alerts
+2026-03-29 02:59:04.308 [main] INFO  c.p.u.event.LayoutEventPublisher - LayoutEventPublisher initialized with metrics timers
+2026-03-29 02:59:04.374 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_COMPONENTS_PER_PAGE - Maximum Components Per Page
+2026-03-29 02:59:04.375 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_COMPONENTS_PER_SECTION - Maximum Components Per Section
+2026-03-29 02:59:04.375 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_SECTIONS_PER_PAGE - Maximum Sections Per Page
+2026-03-29 02:59:04.375 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: GRID_BOUNDARY_CHECK - Grid Boundary Check
+2026-03-29 02:59:04.375 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: NO_OVERLAPPING_COMPONENTS - No Overlapping Components
+2026-03-29 02:59:04.375 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MIN_COMPONENT_SIZE - Minimum Component Size
+2026-03-29 02:59:04.375 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MAX_COMPONENT_SIZE - Maximum Component Size
+2026-03-29 02:59:04.375 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: REQUIRED_SECTIONS - Required Sections
+2026-03-29 02:59:04.375 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: MOBILE_RESPONSIVENESS - Mobile Responsiveness
+2026-03-29 02:59:04.375 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: ACCESSIBILITY_MIN_CONTRAST - Minimum Color Contrast
+2026-03-29 02:59:04.375 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: SEO_META_DESCRIPTION - Meta Description Required
+2026-03-29 02:59:04.375 [main] DEBUG c.p.u.v.LayoutConstraintValidator - Registered constraint: PERFORMANCE_BUDGET - Performance Budget
+2026-03-29 02:59:04.375 [main] INFO  c.p.u.v.LayoutConstraintValidator - LayoutConstraintValidator initialized with 12 default constraints
+2026-03-29 02:59:04.381 [main] INFO  c.purehome.uicore.config.CacheConfig - Initializing Caffeine Cache Manager
+2026-03-29 02:59:04.395 [main] INFO  c.purehome.uicore.config.CacheConfig - Initializing Redis Cache Manager
+2026-03-29 02:59:04.584 [main] INFO  c.p.uicore.config.SchedulerConfig - TaskScheduler initialized - Pool size: 10
+2026-03-29 02:59:04.601 [main] INFO  c.p.uicore.config.SchedulerConfig - AsyncExecutor initialized - Core: 16, Max: 64, Queue: 1000
+2026-03-29 02:59:04.608 [main] INFO  c.p.uicore.config.SchedulerConfig - PublishExecutor initialized - Core: 5, Max: 20, Queue: 500
+2026-03-29 02:59:04.613 [main] INFO  c.p.uicore.config.SchedulerConfig - WebhookExecutor initialized - Core: 10, Max: 50, Queue: 2000
+2026-03-29 02:59:04.621 [main] INFO  c.p.uicore.config.SchedulerConfig - AuditExecutor initialized - Core: 32, Max: 64, Queue: 10000
+2026-03-29 02:59:05.018 [main] INFO  c.p.uicore.config.WebSocketConfig - WebSocket transport configured - Message size: 64KB, Send timeout: 20s
+2026-03-29 02:59:05.029 [main] INFO  c.p.uicore.config.WebSocketConfig - WebSocket endpoints registered - /ws (with SockJS), /ws-stomp
+2026-03-29 02:59:05.855 [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2026-03-29 02:59:05.870 [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2026-03-29 02:59:05.870 [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+2026-03-29 02:59:05.871 [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2026-03-29 02:59:05.872 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'UiCoreScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2026-03-29 02:59:05.872 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'UiCoreScheduler' initialized from an externally provided properties instance.
+2026-03-29 02:59:05.872 [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.2
+2026-03-29 02:59:05.872 [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@66d0d5ee
+2026-03-29 02:59:06.004 [main] WARN  c.p.uicore.config.SecurityConfig - JWT_SECRET environment variable not set. Using default secret for development. DO NOT USE IN PRODUCTION!
+2026-03-29 02:59:06.090 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@33e69162, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@791b9887, org.springframework.security.web.context.SecurityContextHolderFilter@19e93a38, org.springframework.security.web.header.HeaderWriterFilter@543669de, org.springframework.web.filter.CorsFilter@7326f323, org.springframework.security.web.authentication.logout.LogoutFilter@135a8812, com.purehome.uicore.config.SecurityConfig$RateLimitingFilter@202d83b9, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@4d462edc, com.purehome.uicore.config.SecurityConfig$UserIdFilter@27476b5f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@611c1f92, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2fc378cd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23d1090, org.springframework.security.web.session.SessionManagementFilter@26204f8f, org.springframework.security.web.access.ExceptionTranslationFilter@cdf3815, org.springframework.security.web.access.intercept.AuthorizationFilter@48f6f272]
+2026-03-29 02:59:07.282 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 5201 (http) with context path ''
+2026-03-29 02:59:07.360 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 5202 (http)
+2026-03-29 02:59:07.361 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-29 02:59:07.361 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-03-29 02:59:07.390 [main] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-03-29 02:59:07.390 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 95 ms
+2026-03-29 02:59:07.425 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 9 endpoint(s) beneath base path '/actuator'
+2026-03-29 02:59:07.469 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 5202 (http) with context path ''
+2026-03-29 02:59:07.476 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-03-29 02:59:07.476 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@22f10ff6]]
+2026-03-29 02:59:07.477 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-03-29 02:59:07.477 [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2026-03-29 02:59:07.477 [main] INFO  org.quartz.core.QuartzScheduler - Scheduler UiCoreScheduler_$_NON_CLUSTERED started.
+2026-03-29 02:59:07.492 [main] INFO  c.p.uicore.UiCoreServiceApplication - Started UiCoreServiceApplication in 9.964 seconds (process running for 11.163)
+2026-03-29 02:59:07.960 [RMI TCP Connection(2)-192.168.0.11] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-29 02:59:07.960 [RMI TCP Connection(2)-192.168.0.11] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-29 02:59:07.966 [RMI TCP Connection(2)-192.168.0.11] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-03-29 02:59:32.649 [http-nio-5201-exec-1] INFO  c.p.u.controller.DevAuthController - Generated admin token for development - User: admin-001, Expires: 24 hours
+2026-03-29 02:59:56.082 [http-nio-5201-exec-4] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 02:59:56.210 [http-nio-5201-exec-4] DEBUG c.p.u.controller.LayoutController - Rendering layout - Page: 69c89176ef5b572c3134530a, Device: desktop, Preview: false, Viewport: nullxnull
+2026-03-29 02:59:56.242 [http-nio-5201-exec-4] DEBUG c.p.u.service.impl.LayoutServiceImpl - Rendering layout - Page: 69c89176ef5b572c3134530a, Device: desktop, Preview: false
+2026-03-29 03:00:00.007 [scheduler-3] INFO  c.p.u.s.AuditRetentionScheduler - Starting scheduled audit retention policy application
+2026-03-29 03:00:00.011 [scheduler-3] INFO  c.p.u.s.impl.PageAuditServiceImpl - Applying retention policy for workspace: null, dryRun: false
+2026-03-29 03:00:00.125 [scheduler-3] INFO  c.p.u.s.AuditRetentionScheduler - Audit retention completed - Events moved: 0, Events deleted: 0, Space freed: 0 bytes, Duration: 117ms
+2026-03-29 03:00:06.196 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2026-03-29 03:00:27.369 [http-nio-5201-exec-2] DEBUG c.p.uicore.config.SecurityConfig - Set userId attribute: admin-001
+2026-03-29 03:00:27.824 [http-nio-5201-exec-2] INFO  c.p.u.controller.LayoutController - Batch reorder - Page: 69c89176ef5b572c3134530a, Section: section_1, Components: 3
+2026-03-29 03:00:27.825 [http-nio-5201-exec-2] INFO  c.p.u.service.impl.LayoutServiceImpl - Batch reorder - Page: 69c89176ef5b572c3134530a, Section: section_1, Components: 3
+2026-03-29 03:00:28.130 [http-nio-5201-exec-2] INFO  c.p.u.s.impl.PageVersionServiceImpl - Creating version for page 69c89176ef5b572c3134530a by user admin-001, type: LAYOUT_CHANGE
+2026-03-29 03:00:28.391 [http-nio-5201-exec-2] INFO  c.p.u.s.impl.PageVersionServiceImpl - Version 3 created for page 69c89176ef5b572c3134530a
+2026-03-29 03:00:28.458 [ForkJoinPool.commonPool-worker-1] DEBUG c.p.uicore.service.WebSocketService - Broadcast sent to: /topic/layouts/69c89176ef5b572c3134530a/updates

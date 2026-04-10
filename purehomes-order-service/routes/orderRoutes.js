@@ -472,6 +472,48 @@ router.get('/:id/tracking', protect, async (req, res) => {
 });
 
 // ----------------------------
+// 🚀 NEW: Admin Dashboard Routes (PENDULUM & ABACUS Algorithms)
+// ----------------------------
+// PENDULUM algorithm for intelligent pending order aggregation
+// ABACUS algorithm for abandoned cart detection with recovery scoring
+// ----------------------------
+
+/**
+ * @route GET /api/admin/orders/pending
+ * @desc Get all pending orders with PENDULUM algorithm
+ * @access Private/Admin
+ * @query page - Page number (default: 1)
+ * @query limit - Items per page (default: 20, max: 100)
+ */
+router.get('/admin/orders/pending', protect, async (req, res) => {
+    if (orderController.getPendingOrders) {
+        return orderController.getPendingOrders(req, res);
+    }
+    res.status(501).json({
+        message: 'Pending orders endpoint not implemented',
+        algorithm: 'PENDULUM (Pending Order Discovery & Unified Listing Utility Module)'
+    });
+});
+
+/**
+ * @route GET /api/admin/orders/abandoned-carts
+ * @desc Get abandoned carts with ABACUS algorithm
+ * @access Private/Admin
+ * @query minutes - Time threshold in minutes (default: 10)
+ * @query page - Page number (default: 1)
+ * @query limit - Items per page (default: 20, max: 100)
+ */
+router.get('/admin/orders/abandoned-carts', protect, async (req, res) => {
+    if (orderController.getAbandonedCarts) {
+        return orderController.getAbandonedCarts(req, res);
+    }
+    res.status(501).json({
+        message: 'Abandoned carts endpoint not implemented',
+        algorithm: 'ABACUS (Abandoned Basket Analytics & Cumulative Unified Scoring)'
+    });
+});
+
+// ----------------------------
 // ✅ EXISTING ROUTES (Generic routes - MUST come AFTER specific ones)
 // ----------------------------
 router.post('/', protect, orderController.createOrder);

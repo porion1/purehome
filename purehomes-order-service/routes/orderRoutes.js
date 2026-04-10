@@ -600,6 +600,49 @@ router.get('/health/dashboard', protect, async (req, res) => {
     });
 });
 
+// ============================================================
+// 🚀 KUBERNETES HEALTH PROBES (Ready & Live)
+// ============================================================
+
+/**
+ * @route GET /health/ready
+ * @desc Kubernetes Readiness Probe - Checks if service is ready to accept traffic
+ * @access Public (no auth required)
+ */
+router.get('/health/ready', async (req, res) => {
+    const mongoose = require('mongoose');
+    const isDbConnected = mongoose.connection.readyState === 1;
+
+    if (isDbConnected) {
+        res.status(200).json({
+            status: 'ready',
+            database: 'connected',
+            timestamp: new Date().toISOString()
+        });
+    } else {
+        res.status(503).json({
+            status: 'not ready',
+            database: 'disconnected',
+            timestamp: new Date().toISOString()
+        });
+    }
+});
+
+/**
+ * @route GET /health/live
+ * @desc Kubernetes Liveness Probe - Checks if service is alive
+ * @access Public (no auth required)
+ */
+router.get('/health/live', (req, res) => {
+    res.status(200).json({
+        status: 'alive',
+        uptime: process.uptime(),
+        timestamp: new Date().toISOString()
+    });
+});
+
+// ============================================================
+
 // Generic routes with parameters (must be LAST)
 router.get('/user/:userId', protect, orderController.getOrdersByUser);
 router.get('/:id', protect, orderController.getOrderById);

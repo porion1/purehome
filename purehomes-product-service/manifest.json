@@ -1,0 +1,396 @@
+{
+  "name": "purehome-product-service",
+  "version": "2.0.0",
+  "description": "Product and Category management service with FAANG-level algorithms including inventory heat maps, predictive circuit breakers, and distributed inventory reservation (DIRE)",
+  "status": "PRODUCTION_READY",
+  "baseUrl": "http://localhost:5002",
+
+  "service": {
+    "port": 5002,
+    "database": "MongoDB",
+    "databaseUri": "mongodb://127.0.0.1:27017/purehomes",
+    "fallbackDatabaseUri": "mongodb://127.0.0.1:27018/purehomes"
+  },
+
+  "algorithms": [
+    {
+      "name": "Algorithm 1: Adaptive Route Execution Pipeline (AREP)",
+      "purpose": "Dynamic feature flag based route control",
+      "features": [
+        "Feature toggle based on .env configuration",
+        "Priority-based request handling",
+        "System load based degradation",
+        "Runtime feature control without redeploy"
+      ],
+      "active": true
+    },
+    {
+      "name": "Algorithm 2: Predictive Latency-Aware Circuit Breaker",
+      "purpose": "Prevents cascading failures and auto-recovers",
+      "features": [
+        "Tracks p50, p95, p99 latency percentiles",
+        "EWMA-based failure prediction",
+        "Auto-opens circuit at 60% failure rate",
+        "Half-open state with gradual recovery",
+        "Jittered retry backoff prevents thundering herd",
+        "Requires 5 requests before opening circuit"
+      ],
+      "active": true
+    },
+    {
+      "name": "Algorithm 3: Distributed Inventory Reservation with Auto-Expiry (DIRE)",
+      "purpose": "Prevents overselling across concurrent requests",
+      "features": [
+        "Time-limited stock reservations (10 min default)",
+        "Auto-expiry without manual release",
+        "Atomic stock check-reserve operations",
+        "Cart-based reservation tracking",
+        "Priority-based reservation queue (1-3)"
+      ],
+      "active": true
+    }
+  ],
+
+  "endpoints": {
+    "products": {
+      "base": "/products",
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/",
+          "description": "Get all products with pagination, filtering, and ranking",
+          "queryParams": ["page", "limit", "category", "minPrice", "maxPrice", "sort"],
+          "sortOptions": ["score_desc", "price_asc", "price_desc", "newest"],
+          "algorithmUsed": ["AREP", "Circuit Breaker", "Product Ranking"]
+        },
+        {
+          "method": "GET",
+          "path": "/:id",
+          "description": "Get single product by ID with ranked variants",
+          "algorithmUsed": ["AREP", "Circuit Breaker", "Variant Ranking"]
+        },
+        {
+          "method": "POST",
+          "path": "/",
+          "description": "Create new product",
+          "body": {
+            "name": "string (required)",
+            "description": "string (required)",
+            "price": "number (required, min: 0)",
+            "category": "ObjectId (required)",
+            "variants": "array of {color, size, stock}"
+          },
+          "algorithmUsed": ["AREP", "Circuit Breaker", "Inventory Heat Map"]
+        },
+        {
+          "method": "PUT",
+          "path": "/:id",
+          "description": "Update product (triggers pre-save hooks)",
+          "algorithmUsed": ["AREP", "Circuit Breaker", "Inventory Heat Map"]
+        },
+        {
+          "method": "DELETE",
+          "path": "/:id",
+          "description": "Delete product (checks for active reservations)",
+          "algorithmUsed": ["AREP", "Circuit Breaker"]
+        },
+        {
+          "method": "GET",
+          "path": "/cache/stats",
+          "description": "Get cache performance metrics",
+          "algorithmUsed": ["Adaptive Cache Manager"]
+        }
+      ]
+    },
+
+    "productReservations": {
+      "base": "/products",
+      "operations": [
+        {
+          "method": "POST",
+          "path": "/:id/reserve-stock",
+          "description": "Reserve stock for a variant (Algorithm 3 - DIRE)",
+          "body": {
+            "variantId": "ObjectId (required)",
+            "quantity": "number (default: 1, min: 1, max: 999)",
+            "cartId": "string (optional)",
+            "userId": "string (optional)",
+            "priority": "number (1-3, default: 1)",
+            "ttl": "number (milliseconds, default: 600000)"
+          },
+          "response": {
+            "reservationId": "string",
+            "expiresInSeconds": 600,
+            "reservedQuantity": "number",
+            "availableStock": "number"
+          },
+          "algorithmUsed": ["DIRE"]
+        },
+        {
+          "method": "GET",
+          "path": "/reservation/:reservationId",
+          "description": "Get reservation status",
+          "response": {
+            "active": "boolean",
+            "expired": "boolean",
+            "released": "boolean",
+            "remainingSeconds": "number"
+          },
+          "algorithmUsed": ["DIRE"]
+        },
+        {
+          "method": "DELETE",
+          "path": "/reservation/:reservationId",
+          "description": "Release reservation",
+          "algorithmUsed": ["DIRE"]
+        }
+      ]
+    },
+
+    "categories": {
+      "base": "/categories",
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/",
+          "description": "Get all categories with ranking",
+          "queryParams": ["page", "limit", "search", "sort", "includeRelationships"],
+          "sortOptions": ["score_desc", "newest", "health_asc"],
+          "algorithmUsed": ["ACIE", "Category Relationship Mapper"]
+        },
+        {
+          "method": "GET",
+          "path": "/:id",
+          "description": "Get category by ID with relationships",
+          "algorithmUsed": ["ACIE", "Category Relationship Mapper"]
+        },
+        {
+          "method": "POST",
+          "path": "/",
+          "description": "Create new category",
+          "body": {
+            "name": "string (required)",
+            "description": "string (optional)"
+          }
+        },
+        {
+          "method": "PUT",
+          "path": "/:id",
+          "description": "Update category",
+          "algorithmUsed": ["Async productCount sync"]
+        },
+        {
+          "method": "DELETE",
+          "path": "/:id",
+          "description": "Delete category (checks for products)",
+          "validation": "Cannot delete category with products"
+        },
+        {
+          "method": "GET",
+          "path": "/tree",
+          "description": "Get category tree with metrics",
+          "algorithmUsed": ["Category Relationship Mapper"]
+        },
+        {
+          "method": "GET",
+          "path": "/relationships/:id",
+          "description": "Get related categories",
+          "algorithmUsed": ["Category Relationship Mapper"]
+        },
+        {
+          "method": "POST",
+          "path": "/sync/:id",
+          "description": "Manually sync product count",
+          "algorithmUsed": ["Async queue processor"]
+        },
+        {
+          "method": "GET",
+          "path": "/stats",
+          "description": "Get algorithm statistics",
+          "algorithmUsed": ["ACIE"]
+        },
+        {
+          "method": "GET",
+          "path": "/health",
+          "description": "Health check for load balancers"
+        },
+        {
+          "method": "GET",
+          "path": "/admin/throttle/status",
+          "description": "Get throttle manager status",
+          "authRequired": "Admin"
+        }
+      ]
+    },
+
+    "monitoring": {
+      "base": "/",
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/health/governor",
+          "description": "System health with throughput stats",
+          "response": {
+            "status": "healthy",
+            "governor": {
+              "activeRequests": "number",
+              "maxConcurrent": 50,
+              "eventLoopLagMs": "number",
+              "throttleMode": "NORMAL|THROTTLING|RECOVERY",
+              "utilizationPercent": "string"
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/products/admin/circuit/status",
+          "description": "Circuit breaker status for all endpoints",
+          "response": {
+            "GET_ALL_PRODUCTS": {"state": "CLOSED|OPEN|HALF_OPEN", "healthy": "boolean"},
+            "GET_RESERVATION": {"state": "CLOSED|OPEN|HALF_OPEN", "requestCount": "number"}
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/products/admin/circuit/:endpoint",
+          "description": "Detailed circuit metrics for specific endpoint"
+        }
+      ]
+    }
+  },
+
+  "dataModels": {
+    "product": {
+      "fields": {
+        "name": "String (required, indexed)",
+        "description": "String (required)",
+        "price": "Number (required, min: 0)",
+        "category": "ObjectId (ref: Category, required)",
+        "images": "[String]",
+        "variants": [
+          {
+            "color": "String",
+            "size": "String",
+            "stock": "Number (default: 0)",
+            "availabilityScore": "Number (Algorithm 1: stock × demandPriority)",
+            "heatScore": "Number (Algorithm 2: 0-100 scale)",
+            "reservedStock": "Number (Algorithm 3: track reservations)",
+            "lastSoldAt": "Date",
+            "salesVelocity": "Number (units per day)",
+            "daysToZero": "Number (predicted days until stockout)"
+          }
+        ],
+        "status": "String (enum: active|inactive, default: active)",
+        "inventoryHeatMap": {
+          "overallRisk": "String (LOW|MEDIUM|HIGH|CRITICAL)",
+          "topSellingVariant": "String",
+          "totalSalesLast7Days": "Number",
+          "reorderUrgency": "Number (0-100)"
+        },
+        "reservationMetadata": {
+          "totalReserved": "Number",
+          "activeReservationCount": "Number",
+          "lastCleanupAt": "Date"
+        }
+      },
+      "indexes": [
+        "name (text)",
+        "description (text)",
+        "category + price + status (compound)",
+        "inventoryHeatMap.reorderUrgency + status",
+        "variants.heatScore",
+        "reservationMetadata.totalReserved"
+      ]
+    },
+    "category": {
+      "fields": {
+        "name": "String (required, unique, indexed)",
+        "description": "String",
+        "status": "String (enum: active|inactive, default: active)",
+        "rankScore": "Number (productCount × trendScore)",
+        "productCount": "Number (default: 0)",
+        "popularityPulse": {
+          "current": "Number (0-100)",
+          "trend": "String (RISING|STABLE|FALLING)",
+          "peakHour": "String"
+        },
+        "clickVelocity": "Number",
+        "conversionRate": "Number",
+        "seasonalBoost": "Number (default: 1.0)",
+        "relatedCategories": "[{categoryId: ObjectId, strengthScore: Number}]"
+      }
+    }
+  },
+
+  "businessLogic": {
+    "productRanking": "productScore = avg(availabilityScore) + recencyFactor",
+    "inventoryHeatMap": "heatScore = (stockFactor × 0.6 + velocityFactor × 0.4) × 100 + criticalBoost",
+    "reorderUrgency": "0-100 scale based on heatScore (CRITICAL: 90-100, HIGH: 65-80, MEDIUM: 35-60, LOW: 0-30)",
+    "daysToZero": "stock ÷ salesVelocity (rounded down)",
+    "reservationTTL": "600 seconds (10 minutes) with auto-expiry"
+  },
+
+  "security": {
+    "anomalyDetection": {
+      "sqlInjection": "15+ patterns",
+      "nosqlInjection": "13+ patterns",
+      "xss": "10+ patterns",
+      "pathTraversal": "5+ patterns",
+      "commandInjection": "6+ patterns",
+      "autoBlocking": "IP blocked after threshold (25 points)"
+    },
+    "rateLimiting": {
+      "read": "100 requests/second",
+      "write": "20 requests/second",
+      "adaptive": "Reduces limits by 60% when load > 80%"
+    },
+    "circuitBreaker": {
+      "failureThreshold": "3 consecutive failures or 5 total failures",
+      "recoveryTimeout": "15 seconds base + severity multiplier",
+      "halfOpenAllowPercentage": "100% (allows recovery)"
+    }
+  },
+
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "dotenv": "^16.3.1",
+    "morgan": "^1.10.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+
+  "environmentVariables": {
+    "required": [
+      "MONGO_URI",
+      "JWT_SECRET",
+      "PORT"
+    ],
+    "optional": [
+      "MONGO_URI_FALLBACK",
+      "FEATURE_CREATE_PRODUCT",
+      "FEATURE_UPDATE_PRODUCT",
+      "FEATURE_DELETE_PRODUCT",
+      "FEATURE_CATEGORY_CREATION",
+      "FEATURE_PRODUCT_FILTER",
+      "FEATURE_PRODUCT_PAGINATION",
+      "DB_MAX_POOL_SIZE",
+      "LOG_LEVEL"
+    ]
+  },
+
+  "testing": {
+    "healthCheck": "GET /health/governor",
+    "createCategory": "POST /categories",
+    "createProduct": "POST /products",
+    "createReservation": "POST /products/:id/reserve-stock",
+    "circuitStatus": "GET /products/admin/circuit/status"
+  },
+
+  "notes": [
+    "Product updates must use findById + save() to trigger pre-save hooks",
+    "Reservations auto-expire after 10 minutes",
+    "Circuit breaker requires 5 requests before opening",
+    "Category productCount syncs asynchronously",
+    "All endpoints protected by feature flags and circuit breaker"
+  ]
+}

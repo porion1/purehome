@@ -1,0 +1,81 @@
+🧩 🛒 PUREHOME — 10 MICROSERVICES (FINAL BUILD)
+1. 👤 purehome-user-service
+Auth (JWT)
+Users
+
+Endpoints:
+
+POST /register
+POST /login
+GET /me
+
+DONE
+
+
+2. 📦 purehome-product-service
+Products
+Categories
+
+Endpoints:
+
+GET /products
+GET /products/:id
+POST /products
+
+3. 📊 purehome-inventory-service
+Stock tracking
+
+Endpoints:
+
+GET /inventory/:productId
+POST /inventory/update
+4. 🔍 purehome-search-service
+Basic search (query products)
+
+Endpoints:
+
+GET /search?q=
+5. 🛍️ purehome-cart-service
+Cart per user
+
+Endpoints:
+
+POST /cart/add
+GET /cart
+DELETE /cart/remove
+6. 💳 purehome-checkout-service
+Prepare order before payment
+
+Endpoints:
+
+POST /checkout
+7. 💰 purehome-payment-service
+Stripe integration
+
+Endpoints:
+
+POST /payment/create
+POST /payment/webhook
+8. 📬 purehome-order-service
+Orders
+
+Endpoints:
+
+POST /orders
+GET /orders/:id
+9. 🚚 purehome-shipping-service
+Shipping logic
+
+Endpoints:
+
+POST /shipping/create
+GET /shipping/:orderId
+10. ⚙️ purehome-admin-service
+Admin control
+
+Endpoints:
+
+POST /admin/product
+GET /admin/orders
+
+Those 10 microservice we started with.. do you think.. we are done with first

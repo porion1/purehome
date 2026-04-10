@@ -1,0 +1,4 @@
+"_id","user.userId","user.email","user.name","totalAmount","status","createdAt","updatedAt","paidAt","shippedAt","deliveredAt","cancelledAt"
+"69d74a50fa96354141d442c6","69d728f4c87966a2d472b286","testuser@purehomes.com","Test User",1319.978,"cancelled","2026-04-09T06:42:24.740Z","2026-04-09T07:51:56.455Z","2026-04-09T06:42:58.810Z",,,"2026-04-09T07:51:56.446Z"
+"69d75b76b9a5569df80a800c","69d7534cf107ba8d33a5a3fc","admin@purehomes.com","Admin User",1319.978,"pending_payment","2026-04-09T07:55:34.408Z","2026-04-09T07:55:34.425Z",,,,
+"69d75c01b9a5569df80a8012","69d728f4c87966a2d472b286","testuser@purehomes.com","Test User",1319.978,"payment_received","2026-04-09T07:57:53.061Z","2026-04-09T07:58:13.347Z","2026-04-09T07:58:13.347Z",,,

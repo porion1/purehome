@@ -1,0 +1,55 @@
+{
+  "name": "purehomes-product-service",
+  "version": "2.0.0",
+  "description": "PureHome Product Service with FAANG-level algorithms and intelligent dependency optimization",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "prod": "NODE_ENV=production node server.js",
+    "inspect": "node --inspect server.js",
+    "algo:metrics": "node scripts/algorithmMetrics.js",
+    "security:audit": "npm audit --audit-level=moderate",
+    "cache:clear": "node scripts/clearCache.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.23.0",
+    "morgan": "^1.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "purehome",
+    "ecommerce",
+    "faang",
+    "algorithms",
+    "adaptive-throttling",
+    "circuit-breaker",
+    "anomaly-detection",
+    "inventory-heatmap",
+    "category-mesh"
+  ],
+  "author": "PureHome Team",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/purehome/product-service"
+  },
+  "bugs": {
+    "url": "https://github.com/purehome/product-service/issues"
+  },
+  "homepage": "https://purehome.com/products",
+  "config": {
+    "mongodb_uri": "mongodb://127.0.0.1:27017/purehomes",
+    "port": "5002"
+  }
+}

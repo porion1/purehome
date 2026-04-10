@@ -1,0 +1,338 @@
+{
+  "service": {
+    "name": "purehome-user-service",
+    "version": "2.0.0",
+    "description": "User authentication and management microservice with 6 proprietary security algorithms",
+    "port": 5001,
+    "base_url": "http://localhost:5001",
+    "status": "production-ready"
+  },
+  "algorithms": {
+    "AJB_CB": {
+      "name": "Adaptive Jittered Backoff + Circuit Breaker",
+      "location": "config/db.js",
+      "purpose": "MongoDB connection resilience with automatic retry and circuit breaking",
+      "behavior": "Prevents database connection storms using exponential backoff with jitter"
+    },
+    "AWRR_PLB": {
+      "name": "Adaptive Weighted Round-Robin + Predictive Load Balancing",
+      "location": "server.js",
+      "purpose": "Dynamically routes requests to optimal CPU cores",
+      "behavior": "Uses gravity well formula to balance load across 8 cores based on real-time metrics"
+    },
+    "ARC_PP": {
+      "name": "Adaptive Route Caching + Predictive Preloading",
+      "location": "routes/userRoutes.js",
+      "purpose": "Caches API responses and predicts next user requests",
+      "behavior": "30s TTL for user profiles, preloads likely next endpoints"
+    },
+    "ASF_PL": {
+      "name": "Adaptive Session Fingerprinting + Progressive Lockout",
+      "location": "controllers/userController.js",
+      "purpose": "Prevents credential stuffing and brute force attacks",
+      "behavior": "Progressive lockout: 2s → 6s → 20s → 120s after failed attempts"
+    },
+    "APS_PH": {
+      "name": "Adaptive Password Strength Scoring + Progressive Hashing",
+      "location": "utils/hashPassword.js",
+      "purpose": "Dynamic bcrypt rounds based on password strength and system load",
+      "behavior": "Weak passwords get 14 rounds, strong passwords get 10 rounds"
+    },
+    "TRS_AB": {
+      "name": "Token Reputation Scoring + Adaptive Blacklisting",
+      "location": "middleware/authMiddleware.js",
+      "purpose": "Assesses token trustworthiness in real-time",
+      "behavior": "Scores tokens 0-1, blocks below 0.2 reputation"
+    },
+    "SIF_TAP": {
+      "name": "Selective Insight Framework + Token Anomaly Prediction",
+      "location": "models/userModel.js",
+      "purpose": "Predicts token misuse before it happens",
+      "behavior": "Builds behavioral baseline, detects unusual patterns (IP, device, time)"
+    }
+  },
+  "endpoints": {
+    "public": {
+      "POST /api/users/register": {
+        "description": "Register a new user",
+        "body": {
+          "name": "string (required, min 2 chars)",
+          "email": "string (required, valid email)",
+          "password": "string (required, min 8 chars, must contain uppercase, lowercase, number)"
+        },
+        "response": {
+          "id": "string (userId)",
+          "name": "string",
+          "email": "string",
+          "isGuest": false,
+          "accessToken": "string (JWT, expires in 15m)",
+          "refreshToken": "string (JWT, expires in 7d)",
+          "expiresIn": "15m"
+        },
+        "errors": {
+          "400": "MISSING_FIELDS or WEAK_PASSWORD",
+          "409": "USER_EXISTS",
+          "500": "REGISTRATION_ERROR"
+        }
+      },
+      "POST /api/users/login": {
+        "description": "Login existing user",
+        "body": {
+          "email": "string (required)",
+          "password": "string (required)"
+        },
+        "response": {
+          "id": "string",
+          "name": "string",
+          "email": "string",
+          "isGuest": false,
+          "accessToken": "string",
+          "refreshToken": "string",
+          "expiresIn": "15m",
+          "security": {
+            "anomalyScore": "number (0-100)",
+            "riskLevel": "string (low/medium/high/critical)"
+          }
+        },
+        "errors": {
+          "400": "MISSING_CREDENTIALS",
+          "401": "INVALID_CREDENTIALS",
+          "403": "ACCOUNT_BANNED",
+          "429": "ACCOUNT_LOCKED (with retryAfter)",
+          "500": "LOGIN_ERROR"
+        },
+        "rate_limit": "5 attempts per 15 minutes (strict)"
+      },
+      "POST /api/users/guest": {
+        "description": "Create temporary guest user",
+        "response": {
+          "id": "string",
+          "name": "Guest_XXXXXX",
+          "isGuest": true,
+          "accessToken": "string",
+          "refreshToken": "string",
+          "expiresIn": "15m"
+        },
+        "errors": {
+          "500": "GUEST_ERROR"
+        }
+      },
+      "POST /api/users/refresh": {
+        "description": "Refresh expired access token",
+        "body": {
+          "refreshToken": "string (required)"
+        },
+        "response": {
+          "accessToken": "string (new)",
+          "refreshToken": "string (new)",
+          "expiresIn": "15m"
+        },
+        "errors": {
+          "400": "MISSING_TOKEN",
+          "401": "INVALID_REFRESH_TOKEN or FINGERPRINT_MISMATCH",
+          "500": "REFRESH_ERROR"
+        }
+      }
+    },
+    "protected": {
+      "GET /api/users/me": {
+        "description": "Get current authenticated user profile",
+        "headers": {
+          "Authorization": "Bearer {accessToken}"
+        },
+        "response": {
+          "id": "string",
+          "name": "string",
+          "email": "string",
+          "isGuest": "boolean",
+          "emailVerified": "boolean",
+          "lastLoginAt": "ISO date string",
+          "securityWarning": "string (if anomaly score > 50)"
+        },
+        "errors": {
+          "401": "NO_TOKEN, INVALID_TOKEN, or TOKEN_EXPIRED"
+        }
+      },
+      "POST /api/users/logout": {
+        "description": "Logout and invalidate tokens",
+        "headers": {
+          "Authorization": "Bearer {accessToken}"
+        },
+        "body": {
+          "refreshToken": "string (optional)"
+        },
+        "response": {
+          "message": "Logged out successfully",
+          "code": "LOGOUT_SUCCESS"
+        }
+      },
+      "PUT /api/users/me/password": {
+        "description": "Change user password",
+        "headers": {
+          "Authorization": "Bearer {accessToken}"
+        },
+        "body": {
+          "currentPassword": "string (required)",
+          "newPassword": "string (required, min 8 chars)"
+        },
+        "response": {
+          "message": "Password changed successfully",
+          "code": "PASSWORD_CHANGED"
+        },
+        "errors": {
+          "400": "MISSING_PASSWORDS or WEAK_PASSWORD",
+          "401": "INVALID_PASSWORD",
+          "500": "PASSWORD_ERROR"
+        }
+      }
+    },
+    "admin": {
+      "GET /api/users/security/metrics": {
+        "description": "Get security metrics dashboard",
+        "headers": {
+          "Authorization": "Bearer {adminToken}"
+        },
+        "response": {
+          "sessionSecurity": {
+            "activeFailures": "number",
+            "trustedDevices": "number",
+            "blockedAttempts": "number"
+          },
+          "tapAnomalyPrediction": {
+            "activeProfiles": "number",
+            "learningMode": "boolean"
+          },
+          "activeUsers": "number",
+          "guestUsers": "number"
+        }
+      },
+      "GET /api/users/cache/metrics": {
+        "description": "Get cache performance metrics",
+        "headers": {
+          "Authorization": "Bearer {adminToken}"
+        },
+        "response": {
+          "cacheSize": "number",
+          "patternsTracked": "number",
+          "preloadQueueSize": "number"
+        }
+      }
+    },
+    "monitoring": {
+      "GET /health": {
+        "description": "Service health check",
+        "response": {
+          "status": "healthy",
+          "timestamp": "ISO date",
+          "uptime": "number (seconds)",
+          "memory": "object",
+          "loadBalancer": "object"
+        }
+      },
+      "GET /metrics": {
+        "description": "Service performance metrics",
+        "response": {
+          "service": "purehomes-user-service",
+          "totalRequests": "number",
+          "cores": "array",
+          "systemLoad": "number",
+          "memoryPressure": "number"
+        }
+      }
+    }
+  },
+  "environment_variables": {
+    "required": {
+      "PORT": "5001",
+      "MONGO_URI": "mongodb://localhost:27017/purehomes",
+      "JWT_SECRET": "your-secret-key-min-32-chars",
+      "JWT_REFRESH_SECRET": "your-refresh-secret-min-32-chars"
+    },
+    "optional": {
+      "JWT_ACCESS_EXPIRY": "15m (default)",
+      "JWT_REFRESH_EXPIRY": "7d (default)",
+      "JWT_MAX_AGE_MINUTES": "720 (default)",
+      "MONGO_POOL_SIZE": "10 (default)",
+      "MONGO_MIN_POOL_SIZE": "2 (default)",
+      "NODE_ENV": "development/production",
+      "SIF": "true/false (enable query insights)"
+    }
+  },
+  "dependencies": {
+    "runtime": [
+      "express@^4.18.2",
+      "mongoose@^8.0.0",
+      "jsonwebtoken@^9.0.2",
+      "bcrypt@^5.1.1",
+      "dotenv@^16.3.1",
+      "express-rate-limit@^7.1.5",
+      "express-validator@^7.0.1"
+    ],
+    "dev": [
+      "jest@^29.7.0",
+      "supertest@^6.3.3",
+      "mongodb-memory-server@^9.1.6"
+    ]
+  },
+  "security_features": {
+    "password_policy": {
+      "min_length": 8,
+      "require_uppercase": true,
+      "require_lowercase": true,
+      "require_number": true,
+      "reject_common_passwords": true,
+      "reject_sequential_patterns": true,
+      "bcrypt_rounds": "10-14 (adaptive)"
+    },
+    "rate_limiting": {
+      "strict": "5 requests per 15 minutes (login, password change)",
+      "standard": "30 requests per minute (normal operations)",
+      "relaxed": "100 requests per minute (public endpoints)"
+    },
+    "token_config": {
+      "access_token_expiry": "15 minutes",
+      "refresh_token_expiry": "7 days",
+      "max_token_age": "12 hours",
+      "blacklist_on_logout": true
+    },
+    "lockout_policy": {
+      "after_3_failures": "2 seconds",
+      "after_5_failures": "30 seconds",
+      "after_10_failures": "5 minutes",
+      "after_20_failures": "1 hour"
+    }
+  },
+  "database": {
+    "collection_name": "purehomes_users",
+    "indexes": [
+      { "email": 1 },
+      { "isGuest": 1, "createdAt": -1 },
+      { "lastLoginAt": -1 },
+      { "createdAt": 1, "expireAfterSeconds": 2592000, "partialFilterExpression": { "isGuest": true } }
+    ],
+    "ttl": "Guest users automatically deleted after 30 days"
+  },
+  "monitoring": {
+    "health_check": "/health",
+    "metrics_endpoint": "/metrics",
+    "cache_metrics": "/api/users/cache/metrics (admin)",
+    "security_metrics": "/api/users/security/metrics (admin)"
+  },
+  "deployment": {
+    "requirements": {
+      "cpu": "8 cores recommended",
+      "memory": "2GB minimum",
+      "node_version": ">=18.0.0",
+      "mongodb_version": ">=6.0"
+    },
+    "start_command": "npm start",
+    "dev_command": "npm run dev",
+    "test_command": "npm test"
+  },
+  "api_flow": {
+    "registration": "POST /register → validate → hash password → create user → generate tokens → return user + tokens",
+    "login": "POST /login → validate → check lockout → verify credentials → record anomaly → generate tokens → return user + tokens",
+    "protected_request": "GET /me → verify JWT → check blacklist → check anomaly → return user data",
+    "token_refresh": "POST /refresh → verify refresh token → check fingerprint → generate new tokens → invalidate old"
+  }
+}

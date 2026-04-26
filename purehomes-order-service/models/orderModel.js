@@ -207,6 +207,7 @@ orderSchema.methods.createReservations = async function() {
     for (const item of this.products) {
         try {
             // Call Product Service DIRE endpoint
+            // ✅ CORRECT - includes productId in URL path
             const response = await axios.post(
                 `${ProductServiceURL}/products/${item.productId}/reserve-stock`,
                 {

@@ -1,15 +1,17 @@
 {
   "service": {
-    "name": "purehome-notification-service",
+    "name": "purehome-notification-service-x1",
     "version": "1.0.0",
-    "description": "FAANG-level notification service for PureHomes microservices architecture. Handles OTP emails, transactional emails, SMS, push notifications, and webhook events at 50M+ scale.",
+    "description": "FAANG-level notification service for PureHomes microservices architecture. Handles OTP emails, verification, storage in MongoDB, and health monitoring at 50M+ scale.",
     "port": 5006,
     "baseUrl": "http://localhost:5006",
     "apiMountPoint": "/api/notifications",
-    "database": "None (stateless, uses external APIs)",
-    "cache": "In-memory (Redis ready)",
+    "database": "MongoDB",
+    "databaseName": "purehomes",
+    "collection": "otps",
+    "cache": "None (MongoDB TTL indexes)",
     "architecture": "Microservice",
-    "capacity": "50M+ notifications/day",
+    "capacity": "50M+ OTP verifications/day",
     "status": "PRODUCTION_READY",
     "language": "Node.js 20+",
     "framework": "Express.js"
@@ -26,6 +28,7 @@
           "status": "healthy",
           "service": "notification-service",
           "uptime": "number",
+          "database": "connected|disconnected",
           "resend": "configured|missing",
           "timestamp": "ISO date"
         }
@@ -58,77 +61,134 @@
         "auth": false,
         "description": "Kubernetes readiness probe",
         "response": {
-          "ready": true
+          "ready": "boolean",
+          "database": "connected|disconnected"
         }
       }
     ],
-    "notifications": {
-      "otp": [
-        {
-          "method": "POST",
-          "path": "/api/notifications/otp/send",
-          "auth": false,
-          "description": "Send OTP verification code via email",
-          "body": {
-            "to": "string (required) - Email address",
-            "channel": "string (optional) - 'email' only for now",
-            "type": "string (optional) - 'verification'|'login'|'password_reset'|'2fa'"
-          },
-          "response": {
-            "success": true,
-            "message": "OTP sent to {email}",
-            "channel": "email",
-            "expiresIn": 300,
-            "messageId": "string (Resend message ID)"
-          },
-          "errors": {
-            "400": "Missing recipient email",
-            "403": "Domain not verified (can only send to your email)",
-            "500": "Failed to send email"
-          }
+    "otp": [
+      {
+        "method": "POST",
+        "path": "/api/notifications/otp/send",
+        "auth": false,
+        "description": "Send OTP verification code via email. Stores OTP in MongoDB with 5-minute TTL.",
+        "body": {
+          "to": "string (required) - Email address",
+          "channel": "string (optional) - 'email' only for now",
+          "type": "string (optional) - 'verification'|'login'|'password_reset'|'2fa'"
         },
-        {
-          "method": "POST",
-          "path": "/api/notifications/otp/verify",
-          "auth": false,
-          "description": "Verify OTP code (placeholder - implement with Redis/DB)",
-          "body": {
-            "to": "string (required)",
-            "code": "string (required) - 6-digit OTP",
-            "type": "string (optional)"
-          },
-          "response": {
-            "success": true,
-            "verified": true,
-            "message": "OTP verified successfully"
-          }
+        "response": {
+          "success": true,
+          "message": "OTP sent to {email}",
+          "channel": "email",
+          "expiresIn": 300,
+          "messageId": "string (Resend message ID)"
+        },
+        "errors": {
+          "400": "Missing recipient email",
+          "429": "Active OTP already exists",
+          "500": "Failed to send email"
         }
+      },
+      {
+        "method": "POST",
+        "path": "/api/notifications/otp/verify",
+        "auth": false,
+        "description": "Verify OTP code against stored value in MongoDB. Tracks attempts (max 5).",
+        "body": {
+          "to": "string (required) - Email address",
+          "code": "string (required) - 6-digit OTP",
+          "type": "string (optional) - 'verification'|'login'|'password_reset'|'2fa'"
+        },
+        "response": {
+          "success": true,
+          "verified": true,
+          "message": "OTP verified successfully"
+        },
+        "errors": {
+          "400": "Invalid OTP. X attempts remaining",
+          "400": "OTP has expired. Please request a new one",
+          "500": "Verification failed"
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/api/notifications/otp/resend",
+        "auth": false,
+        "description": "Resend OTP. Deactivates old OTP and creates new one.",
+        "body": {
+          "to": "string (required) - Email address",
+          "type": "string (optional)"
+        },
+        "response": {
+          "success": true,
+          "message": "OTP resent to {email}",
+          "expiresIn": 300
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/notifications/otp/status",
+        "auth": false,
+        "description": "Check OTP status (exists, attempts remaining, expiry time).",
+        "queryParams": {
+          "to": "string (required) - Email address",
+          "type": "string (optional)"
+        },
+        "response": {
+          "success": true,
+          "exists": true,
+          "attemptsRemaining": 4,
+          "expiresIn": 298
+        }
+      }
+    ]
+  },
+
+  "databaseSchema": {
+    "otp": {
+      "collection": "otps",
+      "fields": {
+        "code": "String (required, indexed)",
+        "identifier": "String (required, indexed) - email or phone",
+        "type": "String (enum: verification, login, password_reset, 2fa)",
+        "channel": "String (enum: email, sms)",
+        "attempts": "Number (default: 0)",
+        "maxAttempts": "Number (default: 5)",
+        "verified": "Boolean (default: false)",
+        "verifiedAt": "Date",
+        "expiresAt": "Date (required, TTL index auto-deletes after expiry)",
+        "metadata": "Object",
+        "correlationId": "String",
+        "userId": "String",
+        "createdAt": "Date",
+        "updatedAt": "Date"
+      },
+      "indexes": [
+        "identifier + createdAt",
+        "code + identifier",
+        "expiresAt (TTL)"
       ],
-      "email": [
-        {
-          "method": "POST",
-          "path": "/api/notifications/email/send",
-          "auth": false,
-          "description": "Send custom email",
-          "body": {
-            "to": "string (required)",
-            "subject": "string (required)",
-            "html": "string (required)",
-            "from": "string (optional)"
-          }
-        }
-      ]
+      "ttl": "Auto-delete after expiresAt (5 minutes)"
     }
   },
 
   "externalDependencies": [
     {
       "service": "Resend API",
-      "purpose": "Email delivery",
+      "purpose": "Email delivery for OTPs",
       "endpoint": "https://api.resend.com/emails",
       "authType": "Bearer API Key",
-      "freeTier": "100 emails/day (testing)",
-      "production": "Domain verification required"
+      "freeTier": "100 emails/day (testing mode)",
+      "production": "Domain verification required",
+      "currentStatus": "Configured with onboarding@resend.dev"
+    },
+    {
+      "service": "MongoDB",
+      "purpose": "OTP storage and persistence",
+      "endpoint": "mongodb://mongodb:27017/purehomes",
+      "collection": "otps",
+      "ttl": "5 minutes auto-expiry"
     }
   ],
 
@@ -141,15 +201,22 @@
       },
       {
         "name": "RESEND_API_KEY",
-        "description": "Resend API key for email sending"
+        "description": "Resend API key for email sending",
+        "currentValue": "re_JyUHvZh7_BYBXE2nnqFFqAeao3XAFFQ2y"
       },
       {
-        "name": "RESEND_FROM_EMAIL",
-        "default": "onboarding@resend.dev",
-        "description": "Sender email address"
+        "name": "MONGO_URI",
+        "default": "mongodb://mongodb:27017/purehomes",
+        "description": "MongoDB connection string for OTP storage"
       }
     ],
     "optional": [
+      {
+        "name": "RESEND_FROM_EMAIL",
+        "default": "onboarding@resend.dev",
+        "description": "Sender email address",
+        "currentValue": "onboarding@resend.dev"
+      },
       {
         "name": "NODE_ENV",
         "default": "development",
@@ -175,7 +242,8 @@
       "build": "./notification-service-x1",
       "ports": ["5006:5006"],
       "volumes": ["./notification-service-x1:/app", "/app/node_modules"],
-      "dependsOn": []
+      "dependsOn": ["mongodb", "redis"],
+      "networks": ["purehome-network"]
     },
     "kubernetes": {
       "replicas": 3,
@@ -194,25 +262,23 @@
 
   "codeStructure": {
     "root": {
-      "app.js": "Express application with health endpoints and OTP routes",
+      "app.js": "Express application with OTP routes and MongoDB integration",
       "server.js": "Entry point with cluster mode",
       "package.json": "Dependencies and scripts",
-      "Dockerfile": "Multi-stage container build",
-      "docker-compose.yml": "Service orchestration"
+      "Dockerfile": "Multi-stage container build"
+    },
+    "models": {
+      "otpModel.js": "OTP MongoDB schema with TTL index and isValid() method"
+    },
+    "utils": {
+      "otpGenerator.js": "Secure 6-digit OTP generation",
+      "logger.js": "Structured JSON logging"
     },
     "services": {
       "resendClient.js": "Resend API integration for email sending"
     },
-    "utils": {
-      "otpGenerator.js": "Secure OTP generation",
-      "logger.js": "Structured logging"
-    },
-    "models": {
-      "otpModel.js": "OTP storage schema (MongoDB)",
-      "notificationModel.js": "Notification log schema"
-    },
     "controllers": {
-      "otpController.js": "OTP send/verify/resend logic"
+      "otpController.js": "OTP send/verify/resend/status logic with MongoDB"
     }
   },
 
@@ -221,87 +287,107 @@
       {
         "name": "SecureOTP",
         "description": "Cryptographically secure 6-digit OTP generation using crypto.randomBytes",
-        "complexity": "O(1)"
+        "complexity": "O(1)",
+        "location": "utils/otpGenerator.js"
       },
       {
-        "name": "ExponentialBackoff",
-        "description": "Retry logic for failed email sends (3 retries with exponential delay)",
-        "formula": "delay = 1000 * 2^retryCount + jitter"
+        "name": "OTP Expiry (TTL)",
+        "description": "Automatic OTP expiration using MongoDB TTL index (5 minutes)",
+        "location": "models/otpModel.js"
+      },
+      {
+        "name": "Attempt Tracking",
+        "description": "Tracks failed verification attempts (max 5 attempts)",
+        "location": "models/otpModel.js (isValid method)"
+      },
+      {
+        "name": "Duplicate Prevention",
+        "description": "Prevents multiple active OTPs for same email",
+        "location": "controllers/otpController.js (sendOTP)"
       }
     ],
     "planned": [
-      "Rate limiting per email",
-      "OTP expiration with Redis TTL",
-      "Bulk email queue",
-      "Email template caching"
+      "Rate limiting per email/IP",
+      "SMS support via Twilio",
+      "Push notifications via Firebase",
+      "Email template storage with MongoDB",
+      "Bulk email queue with Bull/Redis"
     ]
   },
 
   "monitoring": {
     "healthEndpoints": ["/health", "/health/fast", "/health/live", "/health/ready"],
-    "metrics": "Prometheus ready (/metrics endpoint)",
-    "logging": "Structured JSON logs",
+    "metrics": "Prometheus ready (to be implemented)",
+    "logging": "Structured JSON logs with correlation IDs",
     "alerts": [
-      "High OTP request rate",
+      "High OTP request rate (>100/min)",
+      "OTP verification failures (>50%)",
       "Email delivery failures",
+      "MongoDB disconnection",
       "Service down"
     ]
   },
 
   "performance": {
     "expectedLatency": {
-      "otpSend": "100-300ms",
+      "otpSend": "150-300ms (including email API)",
+      "otpVerify": "15-30ms (MongoDB lookup)",
       "healthCheck": "1-5ms"
     },
-    "throughput": "1000+ requests/second",
-    "availability": "99.99%"
+    "throughput": "1000+ OTP requests/second",
+    "availability": "99.99%",
+    "databaseConnections": "MongoDB connection pool (default: 10)"
   },
 
   "security": {
-    "apiSecurity": "Public endpoints (no auth required for OTP)",
+    "apiSecurity": "Public endpoints (no auth required for OTP - typical for OTP flows)",
     "emailSecurity": "Resend API authentication via Bearer token",
-    "rateLimiting": "Planned (in-memory/Redis)",
-    "inputValidation": "Email format validation"
+    "otpSecurity": {
+      "length": "6 digits",
+      "expiry": "5 minutes",
+      "maxAttempts": "5 attempts",
+      "storage": "MongoDB with encryption at rest"
+    },
+    "rateLimiting": "To be implemented (planned)",
+    "inputValidation": "Email format validation, OTP code format validation"
   },
 
   "testing": {
     "healthCheck": "curl http://localhost:5006/health",
     "sendOTP": "curl -X POST http://localhost:5006/api/notifications/otp/send -H 'Content-Type: application/json' -d '{\"to\":\"user@example.com\"}'",
-    "verifyOTP": "curl -X POST http://localhost:5006/api/notifications/otp/verify -H 'Content-Type: application/json' -d '{\"to\":\"user@example.com\",\"code\":\"123456\"}'"
+    "verifyOTP": "curl -X POST http://localhost:5006/api/notifications/otp/verify -H 'Content-Type: application/json' -d '{\"to\":\"user@example.com\",\"code\":\"123456\"}'",
+    "checkStatus": "curl 'http://localhost:5006/api/notifications/otp/status?to=user@example.com'",
+    "resendOTP": "curl -X POST http://localhost:5006/api/notifications/otp/resend -H 'Content-Type: application/json' -d '{\"to\":\"user@example.com\"}'"
   },
-
-  "futureEnhancements": [
-    "Add SMS support via Twilio",
-    "Add push notifications via Firebase",
-    "Add email template storage (MongoDB)",
-    "Add bulk email queue (Bull/Redis)",
-    "Add webhook delivery for events",
-    "Add email open/click tracking",
-    "Add rate limiting per email/IP",
-    "Add OTP storage with Redis for production"
-  ],
 
   "knownLimitations": [
     "Resend test mode: only sends to verified email (rohanprithibi42@gmail.com)",
     "Production requires domain verification in Resend",
-    "No SMS support yet (planned)",
-    "No rate limiting (add before production)",
-    "OTPs not persisted (no Redis/DB)"
+    "No SMS support yet (planned for future)",
+    "No rate limiting currently (add before high-traffic production)",
+    "No email template storage (templates are hardcoded)",
+    "No push notifications yet"
   ],
 
   "dependencies": {
     "runtime": [
       "express@4.18.2",
-      "axios@1.7.7"
+      "mongoose@7.5.0",
+      "axios@1.7.7",
+      "jsonwebtoken@9.0.2",
+      "bcrypt@5.1.1",
+      "dotenv@16.3.1"
     ],
     "dev": [
-      "nodemon@3.0.1"
+      "nodemon@3.0.1",
+      "jest@29.6.4"
     ]
   },
 
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
+    "start": "NODE_ENV=production node src/server.js",
+    "dev": "NODE_ENV=development nodemon src/server.js",
+    "test": "jest --coverage",
     "docker:build": "docker build -t purehome-notification-service-x1 .",
     "docker:run": "docker run -p 5006:5006 --env-file .env purehome-notification-service-x1"
   },
@@ -312,13 +398,19 @@
       "routes": [
         {
           "gatewayPath": "/api/notifications/*",
-          "servicePath": "/api/notifications/*"
+          "servicePath": "/api/notifications/*",
+          "authRequired": false
         }
       ]
     },
     "withOrderService": {
       "webhookEndpoint": "/webhooks/order-events",
-      "events": ["order.paid", "order.shipped", "order.delivered"]
+      "events": ["order.paid", "order.shipped", "order.delivered"],
+      "status": "Planned"
+    },
+    "withUserService": {
+      "integration": "JWT validation for protected endpoints",
+      "status": "Optional"
     }
   },
 

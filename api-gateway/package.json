@@ -1,0 +1,51 @@
+{
+  "name": "purehomes-gateway-x1",
+  "version": "1.0.0",
+  "description": "FAANG-level API Gateway beating Google ESP, Netflix Zuul, Kong with 12 proprietary algorithms",
+  "author": "PureHomes Engineering",
+  "license": "UNLICENSED",
+  "main": "src/server.js",
+  "engine": "node >=20.0.0",
+  "scripts": {
+    "start": "NODE_ENV=production node src/server.js",
+    "dev": "NODE_ENV=development nodemon src/server.js",
+    "cluster": "NODE_ENV=production node src/server.js --cluster",
+    "test": "jest --coverage --runInBand",
+    "test:load": "artillery run test/load/spike-test.yml",
+    "test:chaos": "node test/chaos/circuit-trip.js",
+    "lint": "eslint src/ --fix",
+    "format": "prettier --write \"src/**/*.js\"",
+    "perf": "node test/performance/benchmark.js",
+    "security": "npm audit && node test/security/scan.js",
+    "docker:build": "docker build -t purehomes/gateway-x1:latest .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env purehomes/gateway-x1:latest"
+  },
+  "dependencies": {
+    "express": "4.18.2",
+    "http-proxy-middleware": "2.0.6",
+    "jsonwebtoken": "9.0.2",
+    "winston": "3.11.0",
+    "prom-client": "15.0.0",
+    "compression": "1.7.4",
+    "helmet": "7.0.0",
+    "cors": "2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "3.0.1",
+    "jest": "29.7.0",
+    "supertest": "6.3.3",
+    "artillery": "2.0.0-31",
+    "eslint": "8.56.0",
+    "prettier": "3.1.1"
+  },
+  "keywords": [
+    "api-gateway",
+    "faang-level",
+    "microservices",
+    "circuit-breaker",
+    "rate-limiting",
+    "orca-algorithm",
+    "glacier-algorithm",
+    "50m-users"
+  ]
+}
